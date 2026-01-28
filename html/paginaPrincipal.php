@@ -68,8 +68,55 @@
       </div>
     </div>
 
-    <?php include "footer.html";?>
+        <!-- CATEGORIES -->
+    <section class="categories">
+      <p>
+        CAREFULLY CURATED CATEGORIES<br />
+        <span>FOR TIMELESS OUTCOMES.</span>
+      </p>
+    </section>
 
+    <!-- CARDS -->
+<section class="cards-section">
+  <div class="cards-container">
+
+    <a href="#" class="card">
+      <img src="../img/foto4.jpg" alt="Container Homes" />
+      <div class="card-overlay">
+        <h3>CONTAINER HOMES</h3>
+        <p>
+          Transform shipping containers into beautiful, sustainable homes.
+          From cozy studios to spacious family residences.
+        </p>
+      </div>
+    </a>
+
+    <a href="#" class="card">
+      <img src="../img/office-space.jpg" alt="Office Spaces" />
+      <div class="card-overlay">
+        <h3>OFFICE SPACES</h3>
+        <p>
+          Modern, efficient office solutions perfect for startups,
+          remote work, or expanding businesses.
+        </p>
+      </div>
+    </a>
+
+    <a href="#" class="card">
+      <img src="../img/comercial1.jpg" alt="Commercial" />
+      <div class="card-overlay">
+        <h3>COMMERCIAL</h3>
+        <p>
+          Pop-up shops, cafes, restaurants, and retail spaces designed
+          for maximum impact and flexibility.
+        </p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+    <?php include "footer.html";?>
     <script src="../js/paginaPrincipal.js"></script>
   </body>
 </html>
