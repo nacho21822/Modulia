@@ -92,7 +92,7 @@
     </a>
 
     <a href="#" class="card">
-      <img src="../img/office-space.jpg" alt="Office Spaces" />
+      <img src="../img/category-offices.jpg" alt="Office Spaces" />
       <div class="card-overlay">
         <h3>OFFICE SPACES</h3>
         <p>
