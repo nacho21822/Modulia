@@ -49,6 +49,25 @@
       </h2>
       <button class="secondary-btn">Explore Features</button>
     </section>
+    <div class="compare-wrapper">
+      <div class="compare-container" id="compare">
+
+        <img src="../img/transicion1.png" class="compare-img base" />
+
+        <img
+          src="../img/transicion2.png"
+          class="compare-img top"
+          id="topImage"
+        />
+
+        <div class="divider" id="divider">
+          <span class="handle"></span>
+        </div>
+
+
+      </div>
+    </div>
+
     <?php include "footer.html";?>
 
     <script src="../js/paginaPrincipal.js"></script>
