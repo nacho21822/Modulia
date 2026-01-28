@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contact - Modular Containers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/contacto.css">
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <div class="row banner-row text-center mb-5">
+            <div class="col-12">
+                <h1 class="super-title">Start Building</h1>
+            </div>
+        </div>
+
+        <div class="row content-area">
+
+            <div class="col-3 info-sidebar">
+                <div class="info-block">
+                    <span class="label">Showroom & Factory</span>
+                    <p>Industrial Park West<br>Unit 42, Valencia</p>
+                </div>
+
+                <div class="info-block">
+                    <span class="label">Visiting Hours</span>
+                    <p>Monday - Friday<br>09:00 - 18:00 (Appointment only)</p>
+                </div>
+            </div>
+
+            <div class="col-8 offset-1">
+
+                <form id="contactForm">
+
+                    <label class="input-label">Contact Details</label>
+                    <div class="row mb-5">
+                        <div class="col-6">
+                            <input type="text" class="line-input" placeholder="First Name" required minlength="2">
+                        </div>
+                        <div class="col-6">
+                            <input type="text" class="line-input" placeholder="Last Name" required minlength="2">
+                        </div>
+                    </div>
+
+                    <div class="mb-5">
+                        <label class="input-label">Phone Number</label>
+                        <input type="tel" class="line-input" placeholder="Phone Number (+34)" required
+                            pattern="[0-9]{9}" title="Please enter a valid 9-digit phone number">
+                    </div>
+
+                    <div class="mb-5">
+                        <label class="input-label">Construction Type</label>
+                        <select class="line-input" required>
+                            <option value="" selected disabled>Select an option...</option>
+                            <option value="home">Single Family Home</option>
+                            <option value="office">Office / Coworking Space</option>
+                            <option value="retail">Retail / Pop-up Store</option>
+                            <option value="custom">Other / Custom Project</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-5">
+                        <label class="input-label">Project Location</label>
+                        <input type="text" class="line-input" placeholder="City or Region (for transport calculation)"
+                            required>
+                    </div>
+
+                    <div class="mb-5">
+                        <label class="input-label">Email Address</label>
+                        <input type="email" class="line-input" placeholder="you@email.com" required>
+                    </div>
+
+                    <div class="mb-5 form-check d-flex align-items-center p-0">
+                        <input type="checkbox" class="custom-checkbox" id="catalog">
+                        <label class="form-check-label ms-3" for="catalog">
+                            I want to receive the technical materials catalog
+                        </label>
+                    </div>
+
+                    <div class="mb-5">
+                        <label class="input-label">Project Details</label>
+                        <textarea class="line-input" rows="1"
+                            placeholder="Ex: I need two 40ft modules joined together..." required
+                            minlength="10"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-pill">Request Quote</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
