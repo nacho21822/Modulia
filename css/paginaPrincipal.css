@@ -312,3 +312,80 @@ body {
 .card:hover .card-overlay {
   opacity: 1;
 }
+
+/* SCROLL STORY */
+.scroll-story {
+  height: 200vh;
+  margin-bottom: 200px;
+  margin-top: 200px;
+}
+
+.scroll-sticky {
+  position: sticky;
+  top: 0;
+  height: 85vh;
+  display: flex;
+  padding: 0 6%;
+  background: #fff;
+}
+
+/* TEXT SIDE */
+.story-text {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 80px;
+  background: #f6f6f6;
+}
+
+.story-item {
+  position: relative;
+  font-size: 52px;
+  line-height: 1.15;
+  margin: 16px 0;
+  padding-left: 24px;
+  opacity: 0.25;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.story-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 3px;
+  height: 0;
+  background: #111;
+  transform: translateY(-50%);
+  transition: height 0.4s ease;
+}
+
+.story-item.active {
+  opacity: 1;
+  transform: translateX(12px);
+}
+
+.story-item.active::before {
+  height: 60%;
+}
+
+/* IMAGE SIDE */
+.story-images {
+  width: 50%;
+  position: relative;
+}
+
+.story-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.story-img.active {
+  opacity: 1;
+}

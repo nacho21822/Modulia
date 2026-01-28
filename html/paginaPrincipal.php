@@ -116,6 +116,29 @@
   </div>
 </section>
 
+<!-- SCROLL STORY -->
+<section class="scroll-story">
+  <div class="scroll-sticky">
+
+    <!-- TEXT -->
+    <div class="story-text">
+      <div class="story-item active">Designed for modern living</div>
+      <div class="story-item">Built faster than traditional homes</div>
+      <div class="story-item">Sustainable & modular by design</div>
+      <div class="story-item">Adaptable to any environment</div>
+    </div>
+
+    <!-- IMAGES -->
+    <div class="story-images">
+      <img src="../img/foto3.jpg" class="story-img active" />
+      <img src="../img/foto4.jpg" class="story-img" />
+      <img src="../img/comedor1.jpg" class="story-img" />
+      <img src="../img/fondo2.jpg" class="story-img" />
+    </div>
+
+  </div>
+</section>
+
     <?php include "footer.html";?>
     <script src="../js/paginaPrincipal.js"></script>
   </body>
