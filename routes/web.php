@@ -2,12 +2,19 @@
 
 use Illuminate\Support\Facades\Route;
 
-// carga la vista "inicio"
 Route::get('/', function () {
     return view('home');
 });
 
-// carga la vista "contacto"
 Route::get('/contacto', function () {
     return view('contacto');
+});
+
+// Nuevas rutas necesarias
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/products', function () {
+    return view('products');
 });
