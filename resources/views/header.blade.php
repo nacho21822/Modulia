@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="../css/header.css" />
+<link rel="stylesheet" href="{{ asset('css/header.css') }}" />
 
 <header class="header">
-  <img src="../img/logo.png" alt="Logo" class="logo" />
+  <img src="{{ asset('img/logo.png') }}" alt="Logo" class="logo" />
 
   <nav class="nav-buttons">
     <button class="button">Explore Features</button>

@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>Modulia</title>
-    <link rel="stylesheet" href="../css/paginaPrincipal.css" />
+    <link rel="stylesheet" href="{{ asset('css/paginaPrincipal.css') }}" />
   </head>
   <body>
     
     <!-- HERO -->
     <section class="hero">
-      <?php include "./header.html"?>
+      @include('header')
 
       <h1 class="hero-text">
         MODULAR SOLUTIONS FOR A NEW<br />
@@ -30,7 +30,7 @@
     <!-- FEATURES IMAGE -->
     <section class="features-section">
       <div class="features-wrapper">
-        <img src="../img/cocina2.jpg" id="featuresImage" alt="Features Image" />
+        <img src="{{ asset('img/cocina2.jpg') }}" id="featuresImage" alt="Features Image" />
 
         <div class="features-tags">
           <span id="kitchen" class="active">Kitchen</span>
@@ -53,10 +53,10 @@
     <div class="compare-wrapper">
       <div class="compare-container" id="compare">
 
-        <img src="../img/transicion1.png" class="compare-img base" />
+        <img src="{{ asset('img/transicion1.png') }}" class="compare-img base" />
 
         <img
-          src="../img/transicion2.png"
+          src="{{ asset('img/transicion2.png') }}"
           class="compare-img top"
           id="topImage"
         />
@@ -82,7 +82,7 @@
   <div class="cards-container">
 
     <a href="#" class="card">
-      <img src="../img/foto4.jpg" alt="Container Homes" />
+      <img src="{{ asset('img/foto4.jpg') }}" alt="Container Homes" />
       <div class="card-overlay">
         <h3>CONTAINER HOMES</h3>
         <p>
@@ -93,7 +93,7 @@
     </a>
 
     <a href="#" class="card">
-      <img src="../img/category-offices.jpg" alt="Office Spaces" />
+      <img src="{{ asset('img/category-offices.jpg') }}" alt="Office Spaces" />
       <div class="card-overlay">
         <h3>OFFICE SPACES</h3>
         <p>
@@ -104,7 +104,7 @@
     </a>
 
     <a href="#" class="card">
-      <img src="../img/comercial1.jpg" alt="Commercial" />
+      <img src="{{ asset('img/comercial1.jpg') }}" alt="Commercial" />
       <div class="card-overlay">
         <h3>COMMERCIAL</h3>
         <p>
@@ -131,16 +131,16 @@
 
     <!-- IMAGES -->
     <div class="story-images">
-      <img src="../img/foto3.jpg" class="story-img active" />
-      <img src="../img/foto4.jpg" class="story-img" />
-      <img src="../img/comedor1.jpg" class="story-img" />
-      <img src="../img/fondo2.jpg" class="story-img" />
+      <img src="{{ asset('img/foto3.jpg') }}" class="story-img active" />
+      <img src="{{ asset('img/foto4.jpg') }}" class="story-img" />
+      <img src="{{ asset('img/comedor1.jpg') }}" class="story-img" />
+      <img src="{{ asset('img/fondo2.jpg') }}" class="story-img" />
     </div>
 
   </div>
 </section>
 
-    <?php include "footer.html";?>
-    <script src="../js/paginaPrincipal.js"></script>
+    @include('footer')
+    <script src="{{ asset('js/paginaPrincipal.js') }}"></script>
   </body>
 </html>
