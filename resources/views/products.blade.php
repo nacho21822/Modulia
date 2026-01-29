@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Our Products | Modulia</title>
-  <link rel="stylesheet" href="{{asset('css/products.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/products.css') }}" />
 </head>
 
 <body>
-
+@include('header')
   <!-- HEADER -->
 <header class="products-header">
   <span class="header-eyebrow">Our collection</span>
@@ -55,7 +55,7 @@
 
       <!-- OFFICE -->
       <article class="product-card" data-category="office" data-price="38000" data-name="home office pro">
-        <div class="product-img"><img src="../img/foto3.jpg"></div>
+        <div class="product-img"><img src="{{ asset('img/foto3.jpg') }}"></div>
         <div class="product-info">
           <span class="product-category">Office Spaces</span>
           <h3>Home Office Pro</h3>
@@ -65,7 +65,7 @@
       </article>
 
       <article class="product-card" data-category="office" data-price="68000" data-name="startup hub">
-        <div class="product-img"><img src="../img/foto3.jpg"></div>
+        <div class="product-img"><img src="{{ asset('img/foto3.jpg') }}"></div>
         <div class="product-info">
           <span class="product-category">Office Spaces</span>
           <h3>Startup Hub</h3>
@@ -75,7 +75,7 @@
       </article>
 
       <article class="product-card" data-category="office" data-price="125000" data-name="executive suite">
-        <div class="product-img"><img src="../img/foto3.jpg"></div>
+        <div class="product-img"><img src="{{ asset('img/foto3.jpg') }}"></div>
         <div class="product-info">
           <span class="product-category">Office Spaces</span>
           <h3>Executive Suite</h3>
@@ -86,7 +86,7 @@
 
       <!-- CONTAINER HOMES -->
       <article class="product-card" data-category="home" data-price="72000" data-name="compact living module">
-        <div class="product-img"><img src="../img/foto3.jpg"></div>
+        <div class="product-img"><img src="{{ asset('img/foto3.jpg') }}"></div>
         <div class="product-info">
           <span class="product-category">Container Homes</span>
           <h3>Compact Living Module</h3>
@@ -96,7 +96,7 @@
       </article>
 
       <article class="product-card" data-category="home" data-price="145000" data-name="family residence">
-        <div class="product-img"><img src="../img/foto3.jpg"></div>
+        <div class="product-img"><img src="{{ asset('img/foto3.jpg') }}"></div>
         <div class="product-info">
           <span class="product-category">Container Homes</span>
           <h3>Family Residence</h3>
@@ -107,7 +107,7 @@
 
       <!-- COMMERCIAL -->
       <article class="product-card" data-category="commercial" data-price="56000" data-name="retail pop-up">
-        <div class="product-img"><img src="../img/foto3.jpg"></div>
+        <div class="product-img"><img src="{{ asset('img/foto3.jpg') }}"></div>
         <div class="product-info">
           <span class="product-category">Commercial</span>
           <h3>Retail Pop-Up</h3>
@@ -117,7 +117,7 @@
       </article>
 
       <article class="product-card" data-category="commercial" data-price="98000" data-name="modular cafe">
-        <div class="product-img"><img src="../img/foto3.jpg"></div>
+        <div class="product-img"><img src="{{ asset('img/foto3.jpg') }}"></div>
         <div class="product-info">
           <span class="product-category">Commercial</span>
           <h3>Modular Café</h3>
@@ -131,6 +131,6 @@
   </main>
 
   @include('footer')
-  <script src="../js/products.js"></script>
+  <script src="{{ asset('js/products.js') }}"></script>
 </body>
 </html>
