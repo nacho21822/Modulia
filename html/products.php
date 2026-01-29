@@ -59,7 +59,6 @@
         <div class="product-info">
           <span class="product-category">Office Spaces</span>
           <h3>Home Office Pro</h3>
-          <p>20ft dedicated workspace for remote professionals</p>
           <span class="product-size">160 sq ft</span>
           <span class="product-price">$38,000</span>
         </div>
@@ -70,7 +69,6 @@
         <div class="product-info">
           <span class="product-category">Office Spaces</span>
           <h3>Startup Hub</h3>
-          <p>40ft co-working space for small teams</p>
           <span class="product-size">320 sq ft</span>
           <span class="product-price">$68,000</span>
         </div>
@@ -81,7 +79,6 @@
         <div class="product-info">
           <span class="product-category">Office Spaces</span>
           <h3>Executive Suite</h3>
-          <p>Premium double-wide executive office</p>
           <span class="product-size">640 sq ft</span>
           <span class="product-price">$125,000</span>
         </div>
@@ -93,7 +90,6 @@
         <div class="product-info">
           <span class="product-category">Container Homes</span>
           <h3>Compact Living Module</h3>
-          <p>Modern 20ft modular home for urban living</p>
           <span class="product-size">160 sq ft</span>
           <span class="product-price">$72,000</span>
         </div>
@@ -104,7 +100,6 @@
         <div class="product-info">
           <span class="product-category">Container Homes</span>
           <h3>Family Residence</h3>
-          <p>Spacious multi-container home for families</p>
           <span class="product-size">640 sq ft</span>
           <span class="product-price">$145,000</span>
         </div>
@@ -116,7 +111,6 @@
         <div class="product-info">
           <span class="product-category">Commercial</span>
           <h3>Retail Pop-Up</h3>
-          <p>Flexible retail space for pop-up experiences</p>
           <span class="product-size">240 sq ft</span>
           <span class="product-price">$56,000</span>
         </div>
@@ -127,7 +121,6 @@
         <div class="product-info">
           <span class="product-category">Commercial</span>
           <h3>Modular Café</h3>
-          <p>Turn-key café solution ready for operation</p>
           <span class="product-size">400 sq ft</span>
           <span class="product-price">$98,000</span>
         </div>
