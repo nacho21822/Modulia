@@ -4,8 +4,12 @@
   <img src="{{ asset('img/logo.png') }}" alt="Logo" class="logo" />
 
   <nav class="nav-buttons">
-    <button class="button">Explore Features</button>
-    <button class="button">Our projects</button>
-    <button class="button">Get Started</button>
+    <a href="products.php" class="button">Our Products</a>
+    <a href="#" class="button">Get Started</a>
+    <a href="contacto.php" class="button">Contact</a>
+
   </nav>
 </header>
+
+</body>
+</html>

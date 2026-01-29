@@ -1,3 +1,10 @@
+/* RESET BÁSICO */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 /* HEADER */
 .header {
   display: flex;
@@ -8,37 +15,48 @@
 
 /* LOGO */
 .logo {
-  height: 100px; /* pequeño pero visible */
-  width: auto; /* mantiene proporción */
+  height: 100px;
+  width: auto;
 }
 
 /* CONTENEDOR BOTONES */
 .nav-buttons {
   display: flex;
   gap: 15px;
+  align-items: center;
 }
 
-/* BOTONES (tu estilo intacto, solo tamaño y transparencia) */
+/* BOTONES */
 .button {
-  padding: 0.7em 1.4em; /* más pequeños */
-  border: none;
+  padding: 0.7em 1.4em;
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
   color: #4d4d4d;
-  transition: all 1000ms;
-  font-size: 13px; /* un poco más pequeño */
+  font-size: 13px;
+
+  background-color: rgba(255, 255, 255, 0.6);
+  outline: 2px solid #4d4d4d;
+
   position: relative;
   overflow: hidden;
-  outline: 2px solid #4d4d4d;
-  background-color: rgba(255, 255, 255, 0.6); /* transparencia */
+  z-index: 1;
+  isolation: isolate;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  transition: color 0.3s ease,
+              transform 0.3s ease,
+              box-shadow 0.3s ease;
 }
 
-/* HOVER (igual que el tuyo) */
+/* HOVER */
 .button:hover {
   color: #ffffff;
   transform: scale(1.1);
-  outline: 2px solid #4d4d4d;
   box-shadow: 4px 5px 17px -4px #4d4d4d;
 }
 
@@ -46,19 +64,21 @@
 .button::before {
   content: "";
   position: absolute;
-  left: -50px;
   top: 0;
+  left: -50px;
   width: 0;
   height: 100%;
   background-color: #4d4d4d;
   transform: skewX(45deg);
   z-index: -1;
-  transition: width 1000ms;
+  transition: width 0.6s ease;
 }
 
 .button:hover::before {
   width: 250%;
 }
+
+/* BODY */
 body {
   background-color: transparent;
 }
