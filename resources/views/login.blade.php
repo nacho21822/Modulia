@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../css/login-modal.css" />
+    <link rel="stylesheet" href="{{ asset('css/login-modal.css') }}" />
   </head>
   <body>
     <div class="container" id="container">
@@ -46,5 +46,5 @@
       </div>
     </div>
   </body>
-  <script src="../js/modalLogIn.js"></script>
+  <script src="{{ asset('js/modalLogIn.js') }}"></script>
 </html>
