@@ -12,8 +12,9 @@
 </head>
 
 <body>
-
+   @include('header')
     <div class="banner-full-width">
+         
         <div class="text-center">
             <h1 class="super-title">Start Building</h1>
         </div>

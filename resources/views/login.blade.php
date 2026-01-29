@@ -9,6 +9,10 @@
 
   </head>
   <body>
+    <a href="{{ route('home') }}" class="logo-link">
+  <img src="{{ asset('img/logo.png') }}" alt="Logo" class="logo" />
+</a>
+
     <div class="container" id="container">
       <div class="form-container sign-up-container">
         <form action="#">
