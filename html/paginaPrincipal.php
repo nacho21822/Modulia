@@ -29,7 +29,7 @@
     <!-- FEATURES IMAGE -->
     <section class="features-section">
       <div class="features-wrapper">
-        <img src="../img/cocina1.jpg" id="featuresImage" alt="Features Image" />
+        <img src="../img/cocina2.jpg" id="featuresImage" alt="Features Image" />
 
         <div class="features-tags">
           <span id="kitchen" class="active">Kitchen</span>
