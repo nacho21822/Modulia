@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="../css/paginaPrincipal.css" />
   </head>
   <body>
+    
     <!-- HERO -->
-    <header class="hero">
-      <img src="../img/logo.png" alt="Modulia logo" class="hero-logo" />
+    <section class="hero">
+      <?php include "./header.html"?>
 
       <h1 class="hero-text">
         MODULAR SOLUTIONS FOR A NEW<br />
@@ -16,7 +17,7 @@
       </h1>
 
       <div class="hero-plus">+</div>
-    </header>
+  </section>
 
     <!-- CLAIM -->
     <section class="claim">
