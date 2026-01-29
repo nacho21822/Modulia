@@ -3,9 +3,9 @@ const image = document.getElementById("featuresImage");
 const tags = document.querySelectorAll(".features-tags span");
 
 const images = {
-  kitchen: "../img/cocina2.jpg",
-  living: "../img/salon3.jpg",
-  bathroom: "../img/baño4.jpg",
+  kitchen: "../img/cocina.jpg",
+  living: "../img/salon.jpg",
+  bathroom: "../img/baño.jpg",
 };
 
 tags.forEach((tag) => {
