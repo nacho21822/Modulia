@@ -13,6 +13,28 @@ Route::get('/contacto', function () {
     return view('contacto');
 })->name('contacto');
 
+<<<<<<< HEAD
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+=======
+// Nuevas rutas necesarias
+use App\Http\Controllers\AuthController;
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+
+Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+
+use App\Http\Controllers\ContainerController;
+Route::get('/products', [ContainerController::class, 'index'])
+     ->name('products.index');
+>>>>>>> feature/login
