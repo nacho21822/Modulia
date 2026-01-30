@@ -5,14 +5,6 @@
   </a>
 
   <nav class="nav-buttons">
-<<<<<<< HEAD
-    <a href="{{ route('products.index') }}" class="button">Our Products</a>
-    <a href="{{ route('contacto') }}" class="button">Contact</a>
-    <a href="{{ route('login') }}" class="button">Get Started</a>
-  </nav>
-
-</header>
-=======
 
     <a href="{{ route('products.index') }}" class="button">Our Products</a>
     <a href="{{ route('contacto') }}" class="button">Contact</a>
@@ -65,4 +57,4 @@
   </nav>
 </header>
 <script src="{{ asset('js/header.js') }}"></script>
->>>>>>> feature/login
+
