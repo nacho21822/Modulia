@@ -1,17 +1,16 @@
-<link rel="stylesheet" href="{{ asset('css/footer.css') }}" />
 <footer class="footer">
   <div class="footer-container">
-    <!-- Left column -->
+    
     <div class="footer-col">
       <h4>Social</h4>
       <ul>
         <li><a href="#">Instagram</a></li>
         <li><a href="#">X (Twitter)</a></li>
-        <li><a href="#">Get in Touch</a></li>
+        
+        <li><a href="{{ route('contacto') }}">Get in Touch</a></li>
       </ul>
     </div>
 
-    <!-- Center columns -->
     <div class="footer-col">
       <h4>Explore Features</h4>
       <ul>
@@ -38,16 +37,15 @@
     </div>
   </div>
 
-  <!-- Newsletter -->
   <div class="newsletter">
     <span>Newsletter</span>
-    <form>
-      <input type="email" placeholder="Enter your email address" />
+    
+    <form action="" method="POST">
+      @csrf <input type="email" name="email" placeholder="Enter your email address" required />
       <button type="submit">Subscribe</button>
     </form>
   </div>
 
-  <!-- Bottom bar -->
   <div class="footer-bottom">
     <div class="logo">
       <span>Modulia</span>

@@ -24,7 +24,7 @@ body {
 .banner-full-width {
   width: 100%;
   height: auto;
-  background-image: url("../img/fondo2.jpeg");
+  background-image: url("../img/fondo2.jpeg"); /* Asegúrate de que esta ruta sea correcta */
   background-size: cover;
   background-position: center center;
   padding-top: 220px;
@@ -56,36 +56,43 @@ body {
 
 /* --- SIDEBAR INFO --- */
 .info-sidebar {
-  padding-right: 60px;
+  padding-right: 20px;
   border-right: 1px solid #eeeeee;
 }
 
 .info-block {
-  margin-bottom: 60px;
+  margin-bottom: 40px; /* Separación entre los dos bloques grandes */
 }
 
-.info-block .label {
+/* Nueva clase para el título */
+.info-title {
+  /* Al ser un div, ya es bloque, pero aseguramos: */
   display: block;
+  width: 100%;
+  
+  /* Estilos de fuente */
   font-weight: 700;
   font-size: 0.8rem;
   letter-spacing: 1px;
-  margin-bottom: 15px;
-  color: #1e1e1e;
   text-transform: uppercase;
+  color: #1e1e1e;
   opacity: 0.6;
+  
+  /* Esto empuja el párrafo hacia abajo */
+  margin-bottom: 15px; 
 }
 
 .info-block p {
   font-size: 1.1rem;
   font-weight: 300;
-  line-height: 1.6;
+  line-height: 1.5;
   color: #1e1e1e;
   margin: 0;
 }
 
 /* --- FORM STYLES --- */
 #contactForm {
-  padding-left: 40px;
+  padding-left: 20px;
 }
 
 .input-label {
@@ -173,16 +180,13 @@ select.line-input {
   color: #fff;
   border: none;
   padding: 18px 50px;
-
   border-radius: 4px;
-
   font-weight: 600;
   font-size: 0.9rem;
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-top: 40px;
   cursor: pointer;
-
   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 

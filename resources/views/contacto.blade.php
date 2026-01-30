@@ -1,64 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <title>Contact - Modulia</title>
+@section('title', 'Contact - Modulia')
+
+@push('styles')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/contacto.css') }}">
-</head>
+@endpush
 
-<body>
-   @include('header')
+@section('content')
+
     <div class="banner-full-width">
-         
-        <div class="text-center">
+         <div class="text-center">
             <h1 class="super-title">Start Building</h1>
-        </div>
+         </div>
     </div>
 
     <div class="main-container">
 
         <div class="row content-area">
 
-            <div class="col-3 info-sidebar">
-                <div class="info-block">
-                    <span class="label">Showroom & Factory</span>
-                    <p>Industrial Park West<br>Unit 42, Valencia</p>
-                </div>
+            <div class="col-12 col-md-4 col-lg-3 info-sidebar">
+    
+    <div class="info-block">
+        <div class="info-title">Showroom & Factory</div>
+        <p>Industrial Park West<br>Unit 42, Valencia</p>
+    </div>
 
-                <div class="info-block">
-                    <span class="label">Visiting Hours</span>
-                    <p>Monday - Friday<br>09:00 - 18:00 (Appointment only)</p>
-                </div>
-            </div>
+    <div class="info-block">
+        <div class="info-title">Visiting Hours</div>
+        <p>Monday - Friday<br>09:00 - 18:00 (Appointment only)</p>
+    </div>
 
-            <div class="col-8 offset-1">
+    </div>
 
-                <form id="contactForm">
+            <div class="col-12 col-md-8 col-lg-8 offset-lg-1 mt-4 mt-md-0">
+                
+                <form id="contactForm" method="POST" action="">
+                    @csrf 
 
                     <label class="input-label">Contact Details</label>
                     <div class="row mb-5">
-                        <div class="col-6">
-                            <input type="text" class="line-input" placeholder="First Name" required minlength="2">
+                        <div class="col-12 col-sm-6 mb-3 mb-sm-0">
+                            <input type="text" name="first_name" class="line-input" placeholder="First Name" required minlength="2">
                         </div>
-                        <div class="col-6">
-                            <input type="text" class="line-input" placeholder="Last Name" required minlength="2">
+                        <div class="col-12 col-sm-6">
+                            <input type="text" name="last_name" class="line-input" placeholder="Last Name" required minlength="2">
                         </div>
                     </div>
 
                     <div class="mb-5">
                         <label class="input-label">Phone Number</label>
-                        <input type="tel" class="line-input" placeholder="Phone Number (+34)" required
+                        <input type="tel" name="phone" class="line-input" placeholder="Phone Number (+34)" required
                             pattern="[0-9]{9}" title="Please enter a valid 9-digit phone number">
                     </div>
 
                     <div class="mb-5">
                         <label class="input-label">Construction Type</label>
-                        <select class="line-input" required>
+                        <select class="line-input" name="construction_type" required>
                             <option value="" selected disabled>Select an option...</option>
                             <option value="home">Single Family Home</option>
                             <option value="office">Office / Coworking Space</option>
@@ -69,17 +67,17 @@
 
                     <div class="mb-5">
                         <label class="input-label">Project Location</label>
-                        <input type="text" class="line-input" placeholder="City or Region (for transport calculation)"
+                        <input type="text" name="location" class="line-input" placeholder="City or Region (for transport calculation)"
                             required>
                     </div>
 
                     <div class="mb-5">
                         <label class="input-label">Email Address</label>
-                        <input type="email" class="line-input" placeholder="you@email.com" required>
+                        <input type="email" name="email" class="line-input" placeholder="you@email.com" required>
                     </div>
 
                     <div class="mb-5 form-check d-flex align-items-center p-0">
-                        <input type="checkbox" class="custom-checkbox" id="catalog">
+                        <input type="checkbox" name="catalog" class="custom-checkbox" id="catalog">
                         <label class="form-check-label ms-3" for="catalog">
                             I want to receive the technical materials catalog
                         </label>
@@ -87,7 +85,7 @@
 
                     <div class="mb-5">
                         <label class="input-label">Project Details</label>
-                        <textarea class="line-input" rows="1"
+                        <textarea class="line-input" name="details" rows="1"
                             placeholder="Ex: I need two 40ft modules joined together..." required
                             minlength="10"></textarea>
                     </div>
@@ -99,7 +97,4 @@
 
     </div>
 
-    @include('footer')
-</body>
-
-</html>
+@endsection

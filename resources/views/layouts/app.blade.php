@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Modulia - @yield('title')</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}" />
+
+    @stack('styles')
+  </head>
+  
+  <body>
+    
+    @include('header')
+
+    <main>
+        @yield('content')
+    </main>
+
+    @include('footer')
+
+    <script src="{{ asset('js/paginaPrincipal.js') }}"></script>
+
+    @stack('scripts')
+    
+  </body>
+</html>
