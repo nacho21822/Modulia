@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContainerController;
+
 
 Route::get('/', function () {
     return view('home');
@@ -33,4 +33,4 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 use App\Http\Controllers\ContainerController;
 Route::get('/products', [ContainerController::class, 'index'])
      ->name('products.index');
->>>>>>> feature/login
+
