@@ -13,11 +13,7 @@ Route::get('/contacto', function () {
     return view('contacto');
 })->name('contacto');
 
-<<<<<<< HEAD
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-=======
+
 // Nuevas rutas necesarias
 use App\Http\Controllers\AuthController;
 
