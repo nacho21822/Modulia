@@ -1,14 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContainerController;
 
 Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/products', function () {
-    return view('products');
-})->name('products');
+Route::get('/products', [ContainerController::class, 'index'])->name('products.index');
 
 Route::get('/contacto', function () {
     return view('contacto');
