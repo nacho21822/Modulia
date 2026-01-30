@@ -15,6 +15,8 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/products', function () {
-    return view('products');
-});
+
+
+use App\Http\Controllers\ContainerController;
+Route::get('/products', [ContainerController::class, 'index'])
+     ->name('products.index');

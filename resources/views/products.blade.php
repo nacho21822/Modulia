@@ -7,8 +7,10 @@
 </head>
 
 <body>
+
 @include('header')
-  <!-- HEADER -->
+
+<!-- HEADER -->
 <header class="products-header">
   <span class="header-eyebrow">Our collection</span>
   <h1>Modular Products</h1>
@@ -18,119 +20,81 @@
   </p>
 </header>
 
-  <!-- MAIN -->
-  <main class="products-layout">
+<!-- MAIN -->
+<main class="products-layout">
 
-    <!-- FILTERS -->
-    <aside class="filters">
+  <!-- FILTERS -->
+  <aside class="filters">
 
-      <div class="filter-group">
-        <h4>Search</h4>
-        <input type="text" placeholder="Search products">
+    <div class="filter-group">
+      <h4>Search</h4>
+      <input type="text" placeholder="Search products">
+    </div>
+
+    <div class="filter-group">
+      <h4>Categories</h4>
+      <ul class="categories-list">
+        <li class="active" data-category="all">All Products</li>
+
+        @foreach ($categories as $category)
+          <li data-category="{{ strtolower($category->name) }}">
+            {{ $category->name }}
+          </li>
+        @endforeach
+      </ul>
+    </div>
+
+    <div class="filter-group">
+      <h4>Price Range</h4>
+      <div class="price-range">
+        <input type="number" placeholder="0">
+        <span>—</span>
+        <input type="number" placeholder="200000">
       </div>
+    </div>
 
-      <div class="filter-group">
-        <h4>Categories</h4>
-        <ul class="categories-list">
-          <li class="active" data-category="all">All Products</li>
-          <li data-category="office">Office Spaces</li>
-          <li data-category="home">Container Homes</li>
-          <li data-category="commercial">Commercial</li>
-        </ul>
-      </div>
+  </aside>
 
-      <div class="filter-group">
-        <h4>Price Range</h4>
-        <div class="price-range">
-          <input type="number" placeholder="0">
-          <span>—</span>
-          <input type="number" placeholder="200000">
-        </div>
-      </div>
+  <!-- PRODUCTS -->
+  <section class="products-grid">
 
-    </aside>
+    @foreach ($categories as $category)
+      @foreach ($category->containers as $container)
 
-    <!-- PRODUCTS -->
-    <section class="products-grid">
+        <article
+          class="product-card"
+          data-category="{{ strtolower($category->name) }}"
+          data-price="{{ $container->price }}"
+          data-name="{{ strtolower($container->name) }}"
+        >
+          <div class="product-img">
+            <img src="{{ asset('img/' . ($container->image ?? 'foto3.jpg')) }}">
+          </div>
 
-      <!-- OFFICE -->
-      <article class="product-card" data-category="office" data-price="38000" data-name="home office pro">
-        <div class="product-img"><img src="{{ asset('img/foto3.jpg') }}"></div>
-        <div class="product-info">
-          <span class="product-category">Office Spaces</span>
-          <h3>Home Office Pro</h3>
-          <span class="product-size">160 sq ft</span>
-          <span class="product-price">$38,000</span>
-        </div>
-      </article>
+          <div class="product-info">
+            <span class="product-category">{{ $category->name }}</span>
 
-      <article class="product-card" data-category="office" data-price="68000" data-name="startup hub">
-        <div class="product-img"><img src="{{ asset('img/foto3.jpg') }}"></div>
-        <div class="product-info">
-          <span class="product-category">Office Spaces</span>
-          <h3>Startup Hub</h3>
-          <span class="product-size">320 sq ft</span>
-          <span class="product-price">$68,000</span>
-        </div>
-      </article>
+            <h3>{{ $container->name }}</h3>
 
-      <article class="product-card" data-category="office" data-price="125000" data-name="executive suite">
-        <div class="product-img"><img src="{{ asset('img/foto3.jpg') }}"></div>
-        <div class="product-info">
-          <span class="product-category">Office Spaces</span>
-          <h3>Executive Suite</h3>
-          <span class="product-size">640 sq ft</span>
-          <span class="product-price">$125,000</span>
-        </div>
-      </article>
+            <span class="product-size">
+              {{ ucfirst($container->type) }}
+            </span>
 
-      <!-- CONTAINER HOMES -->
-      <article class="product-card" data-category="home" data-price="72000" data-name="compact living module">
-        <div class="product-img"><img src="{{ asset('img/foto3.jpg') }}"></div>
-        <div class="product-info">
-          <span class="product-category">Container Homes</span>
-          <h3>Compact Living Module</h3>
-          <span class="product-size">160 sq ft</span>
-          <span class="product-price">$72,000</span>
-        </div>
-      </article>
+            <span class="product-price">
+              ${{ number_format($container->price, 0, ',', '.') }}
+            </span>
+          </div>
+        </article>
 
-      <article class="product-card" data-category="home" data-price="145000" data-name="family residence">
-        <div class="product-img"><img src="{{ asset('img/foto3.jpg') }}"></div>
-        <div class="product-info">
-          <span class="product-category">Container Homes</span>
-          <h3>Family Residence</h3>
-          <span class="product-size">640 sq ft</span>
-          <span class="product-price">$145,000</span>
-        </div>
-      </article>
+      @endforeach
+    @endforeach
 
-      <!-- COMMERCIAL -->
-      <article class="product-card" data-category="commercial" data-price="56000" data-name="retail pop-up">
-        <div class="product-img"><img src="{{ asset('img/foto3.jpg') }}"></div>
-        <div class="product-info">
-          <span class="product-category">Commercial</span>
-          <h3>Retail Pop-Up</h3>
-          <span class="product-size">240 sq ft</span>
-          <span class="product-price">$56,000</span>
-        </div>
-      </article>
+  </section>
 
-      <article class="product-card" data-category="commercial" data-price="98000" data-name="modular cafe">
-        <div class="product-img"><img src="{{ asset('img/foto3.jpg') }}"></div>
-        <div class="product-info">
-          <span class="product-category">Commercial</span>
-          <h3>Modular Café</h3>
-          <span class="product-size">400 sq ft</span>
-          <span class="product-price">$98,000</span>
-        </div>
-      </article>
+</main>
 
-    </section>
+@include('footer')
 
-  </main>
-
-  @include('footer')
-  <script src="{{ asset('js/products.js') }}"></script>
+<script src="{{ asset('js/products.js') }}"></script>
 </body>
 </html>
