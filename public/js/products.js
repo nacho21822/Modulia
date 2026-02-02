@@ -2,36 +2,52 @@ const searchInput = document.querySelector('.filters input[type="text"]');
 const minPriceInput = document.querySelector('.price-range input:first-child');
 const maxPriceInput = document.querySelector('.price-range input:last-child');
 const categoryItems = document.querySelectorAll('.categories-list li');
-const products = document.querySelectorAll('.product-card');
+const productsContainer = document.getElementById('products-container');
 
 let activeCategory = 'all';
+let timeoutToken;
 
 function filterProducts() {
-  const search = searchInput.value.toLowerCase();
-  const min = parseInt(minPriceInput.value) || 0;
-  const max = parseInt(maxPriceInput.value) || Infinity;
+    const search = searchInput.value;
+    const min = minPriceInput ? minPriceInput.value : 0;
+    const max = maxPriceInput ? maxPriceInput.value : '';
 
-  products.forEach(p => {
-    const matchSearch = p.dataset.name.includes(search);
-    const matchCategory = activeCategory === 'all' || p.dataset.category === activeCategory;
-    const price = parseInt(p.dataset.price);
-    const matchPrice = price >= min && price <= max;
+    productsContainer.style.opacity = '0.5';
+    productsContainer.style.pointerEvents = 'none';
 
-    p.style.display = (matchSearch && matchCategory && matchPrice) ? 'block' : 'none';
-  });
+    const url = `/products?search=${encodeURIComponent(search)}&category=${activeCategory}&min_price=${min}&max_price=${max}`;
+
+    fetch(url, {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    })
+    .then(response => response.text())
+    .then(html => {
+        productsContainer.innerHTML = html;
+        productsContainer.style.opacity = '1';
+        productsContainer.style.pointerEvents = 'auto';
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        productsContainer.style.opacity = '1';
+    });
 }
 
-searchInput.addEventListener('input', filterProducts);
-minPriceInput.addEventListener('input', filterProducts);
-maxPriceInput.addEventListener('input', filterProducts);
+function scheduleFilter() {
+    clearTimeout(timeoutToken);
+    timeoutToken = setTimeout(filterProducts, 500);
+}
+
+if (searchInput) searchInput.addEventListener('input', scheduleFilter);
+if (minPriceInput) minPriceInput.addEventListener('input', scheduleFilter);
+if (maxPriceInput) maxPriceInput.addEventListener('input', scheduleFilter);
 
 categoryItems.forEach(item => {
-  item.addEventListener('click', () => {
-    categoryItems.forEach(i => i.classList.remove('active'));
-    item.classList.add('active');
-    activeCategory = item.dataset.category;
-    filterProducts();
-  });
-});
+    item.addEventListener('click', () => {
+        categoryItems.forEach(li => li.classList.remove('active'));
+        item.classList.add('active');
 
-filterProducts();
+        activeCategory = item.dataset.category;
+        
+        filterProducts(); 
+    });
+});
