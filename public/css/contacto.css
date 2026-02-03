@@ -1,0 +1,198 @@
+/* --- RESET & TYPOGRAPHY --- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+  color: #1e1e1e;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+/* --- LAYOUT CONTAINER --- */
+.main-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 200px;
+}
+
+/* --- BANNER FULL WIDTH SECTION --- */
+.banner-full-width {
+  width: 100%;
+  height: auto;
+  background-image: url("../img/fondo2.jpeg"); /* Asegúrate de que esta ruta sea correcta */
+  background-size: cover;
+  background-position: center center;
+  padding-top: 220px;
+  padding-bottom: 220px;
+  margin-bottom: 120px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-full-width::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.super-title {
+  position: relative;
+  font-size: 6rem;
+  font-weight: 300;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* --- SIDEBAR INFO --- */
+.info-sidebar {
+  padding-right: 20px;
+  border-right: 1px solid #eeeeee;
+}
+
+.info-block {
+  margin-bottom: 40px; /* Separación entre los dos bloques grandes */
+}
+
+/* Nueva clase para el título */
+.info-title {
+  /* Al ser un div, ya es bloque, pero aseguramos: */
+  display: block;
+  width: 100%;
+  
+  /* Estilos de fuente */
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #1e1e1e;
+  opacity: 0.6;
+  
+  /* Esto empuja el párrafo hacia abajo */
+  margin-bottom: 15px; 
+}
+
+.info-block p {
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #1e1e1e;
+  margin: 0;
+}
+
+/* --- FORM STYLES --- */
+#contactForm {
+  padding-left: 20px;
+}
+
+.input-label {
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  display: block;
+  text-transform: uppercase;
+  color: #1e1e1e;
+}
+
+.line-input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+  padding: 15px 0;
+  font-size: 1.2rem;
+  font-weight: 300;
+  background-color: transparent;
+  outline: none;
+  transition: all 0.3s ease;
+  color: #1e1e1e;
+}
+
+.line-input:hover {
+  border-bottom: 1px solid #666;
+}
+
+.line-input:focus {
+  border-bottom: 2px solid #1e1e1e;
+}
+
+.line-input::placeholder {
+  color: #bbb;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+select.line-input {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e1e1e' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 1.2em;
+}
+
+/* --- CHECKBOX STYLES --- */
+.custom-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #1e1e1e;
+  border-radius: 0;
+  cursor: pointer;
+  margin-right: 15px;
+  display: grid;
+  place-content: center;
+}
+
+.custom-checkbox::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  background-color: #1e1e1e;
+}
+
+.custom-checkbox:checked::before {
+  transform: scale(1);
+}
+
+.form-check-label {
+  font-weight: 300;
+  font-size: 0.95rem;
+  color: #1e1e1e;
+}
+
+/* --- BUTTON STYLES --- */
+.btn-pill {
+  background-color: #1e1e1e;
+  color: #fff;
+  border: none;
+  padding: 18px 50px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 40px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn-pill:hover {
+  background-color: #000000;
+  border-radius: 30px;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
