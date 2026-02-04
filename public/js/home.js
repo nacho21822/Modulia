@@ -1,19 +1,12 @@
-/* FEATURES IMAGE SWITCH */
 const image = document.getElementById("featuresImage");
 const tags = document.querySelectorAll(".features-tags span");
-
-const images = {
-    kitchen: "{{ asset('img/cocina2.jpg') }}",
-    living: "{{ asset('img/salon.jpg') }}",
-    bathroom: "{{ asset('img/baño.jpg') }}",
-};
 
 tags.forEach((tag) => {
     tag.addEventListener("click", () => {
         image.style.opacity = 0;
 
         setTimeout(() => {
-            image.src = images[tag.id];
+            image.src = tag.getAttribute('data-img');
             image.style.opacity = 1;
         }, 300);
 
@@ -34,12 +27,9 @@ compare.addEventListener("mousemove", (e) => {
 
     const percent = (x / rect.width) * 100;
 
-    /* AQUÍ ESTÁ LA MAGIA */
     topImage.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
     divider.style.left = percent + "%";
 });
-
-/* SCROLL STORY */
 
 const section = document.querySelector(".scroll-story");
 const items = document.querySelectorAll(".story-item");

@@ -26,7 +26,7 @@
 
     @include('footer')
 
-    <script src="{{ asset('js/paginaPrincipal.js') }}"></script>
+    <script src="{{ asset('js/home.js') }}"></script>
 
     @stack('scripts')
     

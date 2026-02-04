@@ -27,9 +27,9 @@
       <div class="features-wrapper">
         <img src="{{ asset('img/cocina2.jpg') }}" id="featuresImage" alt="Features Image" />
         <div class="features-tags">
-          <span id="kitchen" class="active">Kitchen</span>
-          <span id="living">Living Room</span>
-          <span id="bathroom">Bathroom</span>
+          <span id="kitchen" class="active" data-img="{{ asset('img/cocina2.jpg') }}">Kitchen</span>
+          <span id="living" data-img="{{ asset('img/salon.jpg') }}">Living Room</span>
+          <span id="bathroom" data-img="{{ asset('img/baño.jpg') }}">Bathroom</span>
         </div>
         <button class="features-btn">Explore Features</button>
       </div>
@@ -62,21 +62,21 @@
 
     <section class="cards-section">
       <div class="cards-container">
-        <a href="#" class="card">
+        <a href="{{ route('products.index') }}" class="card">
           <img src="{{ asset('img/foto4.jpg') }}" alt="Container Homes" />
           <div class="card-overlay">
             <h3>CONTAINER HOMES</h3>
             <p>Transform shipping containers into beautiful, sustainable homes.</p>
           </div>
         </a>
-        <a href="#" class="card">
+        <a href="{{ route('products.index') }}" class="card">
           <img src="{{ asset('img/category-offices.jpg') }}" alt="Office Spaces" />
           <div class="card-overlay">
             <h3>OFFICE SPACES</h3>
             <p>Modern, efficient office solutions.</p>
           </div>
         </a>
-        <a href="#" class="card">
+        <a href="{{ route('products.index') }}" class="card">
           <img src="{{ asset('img/comercial1.jpg') }}" alt="Commercial" />
           <div class="card-overlay">
             <h3>COMMERCIAL</h3>
