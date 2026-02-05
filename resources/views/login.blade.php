@@ -9,6 +9,11 @@
 </head>
 
 <body>
+  @if(session('auth_message'))
+  <div class="login-warning">
+    {{ session('auth_message') }}
+  </div>
+  @endif
 
 <a href="{{ route('home') }}" class="logo-link">
   <img src="{{ asset('img/logo.png') }}" alt="Logo" class="logo" />

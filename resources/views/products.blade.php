@@ -27,15 +27,25 @@
     </div>
 
     <div class="filter-group">
-      <h4>Categories</h4>
+      <h4>
+        Categories
+        @auth
+          @if(auth()->user()->role === 'admin')
+            <a href="{{ route('categories.create') }}" class="admin-plus" title="Add category">
+              ➕
+            </a>
+          @endif
+        @endauth
+      </h4>
+
       <ul class="categories-list">
         <li class="active" data-category="all">All Products</li>
 
-      @foreach ($categories as $category)
-        <li data-category="{{ $category->name }}">
+        @foreach ($categories as $category)
+          <li data-category="{{ $category->name }}">
             {{ $category->name }}
-        </li>
-      @endforeach
+          </li>
+        @endforeach
       </ul>
     </div>
 
@@ -50,11 +60,26 @@
 
   </aside>
 
-  <section class="products-grid" id="products-container">
-    @include('partials.products_list')
-  </section>
+  <div class="products-content">
+
+    @auth
+      @if(auth()->user()->role === 'admin')
+        <div class="admin-actions">
+          <a href="{{ route('containers.create') }}" class="admin-add-btn">
+            ➕ Add container
+          </a>
+        </div>
+      @endif
+    @endauth
+
+    <section class="products-grid" id="products-container">
+      @include('partials.products_list')
+    </section>
+
+  </div>
 
 </div>
+
 
 @endsection
 
