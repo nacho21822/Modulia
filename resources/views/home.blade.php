@@ -31,7 +31,7 @@
           <span id="living" data-img="{{ asset('img/salon.jpg') }}">Living Room</span>
           <span id="bathroom" data-img="{{ asset('img/baño.jpg') }}">Bathroom</span>
         </div>
-        <button class="features-btn">Explore Features</button>
+        <button class="features-btn">Our Products</button>
       </div>
     </section>
 
@@ -40,7 +40,7 @@
         DESIGNED TO BLEND IN,<br />
         <span>NATURALLY STANDS OUT.</span>
       </h2>
-      <button class="secondary-btn">Explore Features</button>
+      <button class="secondary-btn">Our Product</button>
     </section>
 
     <div class="compare-wrapper">
@@ -89,16 +89,20 @@
     <section class="scroll-story">
       <div class="scroll-sticky">
         <div class="story-text">
-          <div class="story-item active">Designed for modern living</div>
-          <div class="story-item">Built faster than traditional homes</div>
-          <div class="story-item">Sustainable & modular by design</div>
-          <div class="story-item">Adaptable to any environment</div>
+          <div class="story-item active">Versatile modular systems for industry, offices, and housing</div>
+          <div class="story-item">Temporary or permanent modular buildings</div>
+          <div class="story-item">Quality, durability, and efficiency in every module</div>
+          <div class="story-item">Cost-effective alternative to traditional construction</div>
+          <div class="story-item">Modular container solutions built to grow with you</div>
+          <div class="story-item">Building smarter spaces with modular innovation</div>
         </div>
         <div class="story-images">
           <img src="{{ asset('img/foto3.jpg') }}" class="story-img active" />
           <img src="{{ asset('img/foto4.jpg') }}" class="story-img" />
           <img src="{{ asset('img/comedor1.jpg') }}" class="story-img" />
           <img src="{{ asset('img/fondo2.jpg') }}" class="story-img" />
+          <img src="{{ asset('img/comedor1.jpg') }}" class="story-img" />
+          <img src="{{ asset('img/comedor1.jpg') }}" class="story-img" />
         </div>
       </div>
     </section>
