@@ -17,9 +17,8 @@
     </section>
 
     <section class="claim">
-      <p>
-        WE DESIGN CUSTOM, ARCHITECT-GRADE SPACES<br />
-        <span>AND BUILD THEM IN WEEKS, NOT YEARS.</span>
+      <p>ARCHITECTURAL MODULAR SPACES,<br/>
+      <span>TAILORED TO YOUR VISION AND TIMELINE.</span>
       </p>
     </section>
 
@@ -36,10 +35,9 @@
     </section>
 
     <section class="final">
-      <h2>
-        DESIGNED TO BLEND IN,<br />
-        <span>NATURALLY STANDS OUT.</span>
-      </h2>
+      <p>DESIGNED TO INTEGRATE SEAMLESSLY,<br/>
+      <span>BUILT TO MAKE AN IMPACT.</span>
+      </p>
       <button class="secondary-btn">Our Product</button>
     </section>
 
@@ -94,15 +92,13 @@
           <div class="story-item">Quality, durability, and efficiency in every module</div>
           <div class="story-item">Cost-effective alternative to traditional construction</div>
           <div class="story-item">Modular container solutions built to grow with you</div>
-          <div class="story-item">Building smarter spaces with modular innovation</div>
         </div>
         <div class="story-images">
-          <img src="{{ asset('img/foto3.jpg') }}" class="story-img active" />
-          <img src="{{ asset('img/foto4.jpg') }}" class="story-img" />
-          <img src="{{ asset('img/comedor1.jpg') }}" class="story-img" />
-          <img src="{{ asset('img/fondo2.jpg') }}" class="story-img" />
-          <img src="{{ asset('img/comedor1.jpg') }}" class="story-img" />
-          <img src="{{ asset('img/comedor1.jpg') }}" class="story-img" />
+          <img src="{{ asset('img/scroll6.jpg') }}" class="story-img active" />
+          <img src="{{ asset('img/scroll2.jpg') }}" class="story-img" />
+          <img src="{{ asset('img/scroll5.jpg') }}" class="story-img" />
+          <img src="{{ asset('img/scroll4.jpg') }}" class="story-img" />
+          <img src="{{ asset('img/scroll3.jpg') }}" class="story-img" />
         </div>
       </div>
     </section>

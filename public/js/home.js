@@ -39,10 +39,11 @@ window.addEventListener("scroll", () => {
     const rect = section.getBoundingClientRect();
     const sectionHeight = section.offsetHeight;
     const scrollInside = Math.abs(rect.top);
-    const step = sectionHeight / items.length;
 
-    let index = Math.floor(scrollInside / step);
+    const paddingBottom = window.innerHeight / 1;
+    const effectiveHeight = sectionHeight - paddingBottom;
 
+    let index = Math.floor((scrollInside / effectiveHeight) * items.length);
     index = Math.max(0, Math.min(index, items.length - 1));
 
     items.forEach((item, i) => {
