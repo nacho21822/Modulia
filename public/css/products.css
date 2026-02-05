@@ -1,117 +1,154 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
 }
 
 body {
-  background: #fff;
-  color: #111;
+    background: #fff;
+    color: #111;
 }
 
 .products-header {
-  padding: 120px 6% 80px;
+    padding: 120px 6% 80px;
 }
 
 .products-header h1 {
-  font-size: 52px;
-  font-weight: 300;
+    font-size: 52px;
+    font-weight: 300;
 }
 
 .products-layout {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 60px;
-  padding: 0 6% 160px;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 60px;
+    padding: 0 6% 160px;
 }
 
 .filters {
-  border-right: 1px solid #eee;
-  padding-right: 40px;
+    border-right: 1px solid #eee;
+    padding-right: 40px;
 }
 
 .filter-group {
-  margin-bottom: 40px;
+    margin-bottom: 40px;
 }
 
 .filter-group h4 {
-  font-size: 14px;
-  letter-spacing: 1px;
-  margin-bottom: 14px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
 }
 
 .filter-group input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
 }
 
 .categories-list {
-  list-style: none;
+    list-style: none;
 }
 
 .categories-list li {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 0;
-  cursor: pointer;
-  opacity: 0.5;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    cursor: pointer;
+    opacity: 0.5;
 }
 
 .categories-list li.active {
-  opacity: 1;
-  font-weight: 600;
+    opacity: 1;
+    font-weight: 600;
 }
 
 .price-range {
-  display: flex;
-  gap: 10px;
+    display: flex;
+    gap: 10px;
 }
 
 .products-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
 }
 
 .product-img {
-  height: 260px;
-  overflow: hidden;
+    height: 260px;
+    overflow: hidden;
 }
 
 .product-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform .6s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
 }
 
 .product-card:hover img {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .product-info {
-  padding-top: 16px;
+    padding-top: 16px;
 }
 
 .product-category {
-  font-size: 12px;
-  opacity: 0.5;
+    font-size: 12px;
+    opacity: 0.5;
 }
 
 .product-info h3 {
-  margin: 6px 0;
-  font-size: 18px;
+    margin: 6px 0;
+    font-size: 18px;
 }
 
 .product-info p {
-  font-size: 14px;
-  opacity: 0.7;
+    font-size: 14px;
+    opacity: 0.7;
 }
 
 .product-price {
-  display: block;
-  margin-top: 12px;
-  font-weight: 600;
+    display: block;
+    margin-top: 12px;
+    font-weight: 600;
+}
+
+.admin-actions {
+    margin-bottom: 20px;
+}
+
+.admin-add-btn {
+    padding: 10px 16px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.product-card {
+    position: relative;
+}
+
+.admin-edit-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    text-decoration: none;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    z-index: 10;
+}
+
+.admin-edit-btn:hover {
+    background: #000;
+}
+.products-content {
+    display: block;
 }

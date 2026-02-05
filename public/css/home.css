@@ -124,18 +124,28 @@ body {
   font-weight: 700;
 }
 
-/* BUTTON */
 .features-btn {
   position: absolute;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   background: white;
+  color: black;
   border: none;
   padding: 12px 28px;
-  font-size: 14px;
   cursor: pointer;
-  border-radius: 6px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.features-btn:hover {
+  border-radius: 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: none;
 }
 
 /* FINAL */
@@ -144,7 +154,7 @@ body {
   padding: 80px 20px;
 }
 
-.final h2 {
+.final p {
   font-size: 34px;
   font-weight: 300;
   margin-bottom: 30px;
@@ -155,11 +165,25 @@ body {
 }
 
 .secondary-btn {
-  background: #999;
-  border: none;
-  padding: 12px 35px;
-  color: white;
-  cursor: pointer;
+    all: unset;
+    color: #fff;
+    border: none;
+    text-decoration: none;
+    padding: 18px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    background-color: rgba(185, 173, 173, 0.6);
+}
+
+.secondary-btn:hover {
+    border-radius: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: none;
 }
 
 .compare-container {
@@ -333,21 +357,22 @@ body {
   width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0 80px;
+  justify-content: flex-start;
+  padding: 40px 60px;
   background: #f6f6f6;
+  overflow: hidden;
 }
 
 .story-item {
   position: relative;
-  font-size: 52px;
-  line-height: 1.15;
-  margin: 16px 0;
+  font-size: 36px;
+  line-height: 1.25;
+  margin: 12px 0;
   padding-left: 24px;
   opacity: 0.25;
   transition:
-    opacity 0.4s ease,
-    transform 0.4s ease;
+  opacity 0.4s ease,
+  transform 0.4s ease;
 }
 
 .story-item::before {
@@ -389,4 +414,90 @@ body {
 
 .story-img.active {
   opacity: 1;
+}
+
+/* --- NOTIFICACIÓN TOAST (Estilo Modulia Premium) --- */
+.welcome-toast {
+    position: fixed;
+    top: 30px;
+    left: 50%; 
+    transform: translateX(-50%); 
+    
+    background: #ffffff;
+    padding: 0;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+    z-index: 9999;
+    overflow: hidden;
+    min-width: 300px;
+    border: 1px solid #f0f0f0;
+
+    /* Animación: Baja, espera, sube */
+    animation: slideDownUp 4s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+/* Ajustamos el contenedor para que la imagen y el texto se alineen bien */
+.toast-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 25px;
+    gap: 12px; /* Espacio entre imagen y texto */
+}
+
+.toast-icon {
+    font-size: 20px;
+}
+
+.welcome-toast p {
+    margin: 0;
+    color: #111; 
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* barrita de tiempo */
+.toast-progress {
+    height: 3px;
+    background: #111;
+    width: 100%;
+    animation: progressBar 3.4s linear forwards;
+}
+
+/* Clase específica para la imagen del Toast */
+.toast-img {
+    width: 24px;  /* Tamaño pequeño y discreto */
+    height: 24px;
+    object-fit: contain; /* Para que no se deforme */
+    display: block;
+}
+
+/* --- ANIMACIONES (Keyframes) --- */
+
+/* Efecto de bajada elástica */
+@keyframes slideDownUp {
+    0% {
+        transform: translate(-50%, -100px); /* Empieza fuera, arriba */
+        opacity: 0;
+    }
+    10% {
+        transform: translate(-50%, 0); /* Baja a su sitio */
+        opacity: 1;
+    }
+    85% {
+        transform: translate(-50%, 0); /* Se queda quieto */
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -100px); /* Sube y desaparece */
+        opacity: 0;
+    }
+}
+
+/* Barra de progreso reduciéndose */
+@keyframes progressBar {
+    0% { width: 100%; }
+    100% { width: 0%; }
 }
