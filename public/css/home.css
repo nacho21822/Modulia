@@ -415,3 +415,89 @@ body {
 .story-img.active {
   opacity: 1;
 }
+
+/* --- NOTIFICACIÓN TOAST (Estilo Modulia Premium) --- */
+.welcome-toast {
+    position: fixed;
+    top: 30px;
+    left: 50%; 
+    transform: translateX(-50%); 
+    
+    background: #ffffff;
+    padding: 0;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+    z-index: 9999;
+    overflow: hidden;
+    min-width: 300px;
+    border: 1px solid #f0f0f0;
+
+    /* Animación: Baja, espera, sube */
+    animation: slideDownUp 4s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+/* Ajustamos el contenedor para que la imagen y el texto se alineen bien */
+.toast-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 25px;
+    gap: 12px; /* Espacio entre imagen y texto */
+}
+
+.toast-icon {
+    font-size: 20px;
+}
+
+.welcome-toast p {
+    margin: 0;
+    color: #111; 
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* barrita de tiempo */
+.toast-progress {
+    height: 3px;
+    background: #111;
+    width: 100%;
+    animation: progressBar 3.4s linear forwards;
+}
+
+/* Clase específica para la imagen del Toast */
+.toast-img {
+    width: 24px;  /* Tamaño pequeño y discreto */
+    height: 24px;
+    object-fit: contain; /* Para que no se deforme */
+    display: block;
+}
+
+/* --- ANIMACIONES (Keyframes) --- */
+
+/* Efecto de bajada elástica */
+@keyframes slideDownUp {
+    0% {
+        transform: translate(-50%, -100px); /* Empieza fuera, arriba */
+        opacity: 0;
+    }
+    10% {
+        transform: translate(-50%, 0); /* Baja a su sitio */
+        opacity: 1;
+    }
+    85% {
+        transform: translate(-50%, 0); /* Se queda quieto */
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -100px); /* Sube y desaparece */
+        opacity: 0;
+    }
+}
+
+/* Barra de progreso reduciéndose */
+@keyframes progressBar {
+    0% { width: 100%; }
+    100% { width: 0%; }
+}
