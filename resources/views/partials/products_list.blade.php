@@ -24,6 +24,15 @@
             <span class="product-price">
                 ${{ number_format($container->price, 0, ',', '.') }}
             </span>
+
+            {{-- CARRITO --}}
+            <form action="{{ route('cart.add', $container->id) }}" method="POST">
+                @csrf
+                <button type="submit" class="add-cart-btn">
+                    Add to cart
+                </button>
+            </form>
+
         </div>
     </article>
 @empty

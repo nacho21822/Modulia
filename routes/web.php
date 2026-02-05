@@ -5,7 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContainerController;
 use App\Http\Controllers\Admin\AdminContainerController;
 use App\Http\Controllers\Admin\AdminCategoryController;
-
+use App\Http\Controllers\CartController;
 
 Route::get('/', function () {
     return view('home');
@@ -23,13 +23,15 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/register', [AuthController::class, 'register'])->name('register.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-
 Route::middleware('mustAuth')->group(function () {
     Route::get('/products', [ContainerController::class, 'index'])
         ->name('products.index');
+
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+    Route::post('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+    Route::post('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
 });
-
-
 
 Route::middleware(['mustAuth', 'admin'])->group(function () {
 

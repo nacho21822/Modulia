@@ -18,8 +18,8 @@
 </header>
 
 <div class="products-layout">
-
   <aside class="filters">
+    @include('partials.cart')
 
     <div class="filter-group">
       <h4>Search</h4>

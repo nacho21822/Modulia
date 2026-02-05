@@ -1,0 +1,56 @@
+@extends('layouts.app')
+
+@section('title', 'Your Cart')
+
+@push('styles')
+<link rel="stylesheet" href="{{ asset('css/cart.css') }}">
+@endpush
+
+@section('content')
+<div class="cart-page">
+    <h1>Your Cart</h1>
+
+    @if(session('cart') && count(session('cart')) > 0)
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Subtotal</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @php $total = 0; @endphp
+                @foreach(session('cart') as $id => $item)
+                    @php $subtotal = $item['price'] * $item['quantity']; $total += $subtotal; @endphp
+                    <tr>
+                        <td>{{ $item['name'] }}</td>
+                        <td>${{ number_format($item['price'], 0, ',', '.') }}</td>
+                        <td>{{ $item['quantity'] }}</td>
+                        <td>${{ number_format($subtotal, 0, ',', '.') }}</td>
+                        <td>
+                            <form action="{{ route('cart.remove', $id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="remove-btn">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+        <div class="cart-total">
+            <strong>Total: ${{ number_format($total, 0, ',', '.') }}</strong>
+        </div>
+
+        <form action="{{ route('cart.clear') }}" method="POST">
+            @csrf
+            <button type="submit" class="clear-cart-btn">Clear Cart</button>
+        </form>
+    @else
+        <p class="empty-cart">Your cart is empty.</p>
+    @endif
+</div>
+@endsection
