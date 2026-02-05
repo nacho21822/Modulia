@@ -17,8 +17,8 @@
     {{-- USUARIO LOGUEADO --}}
     @auth
       <div class="user-menu">
-        <button class="user-button" id="userMenuToggle">
-          <img src="{{ asset('img/user-icon.png') }}" alt="User">
+        <button class="button" id="userMenuToggle">
+          {{ auth()->user()->name }}
         </button>
 
         <ul class="user-dropdown" id="userDropdown">
