@@ -47,7 +47,7 @@ categoryItems.forEach(item => {
     });
 });
 
-// LÓGICA DE URL AUTOMÁTICA
+// LÓGICA URL AUTOMÁTICA
 document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     const categoriaUrl = params.get('category');
