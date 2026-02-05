@@ -14,7 +14,7 @@
         @endauth
 
         <div class="product-img">
-            <img src="{{ asset('img/' . ($container->image ?? 'foto3.jpg')) }}">
+            <img src="{{ $container->image ?? asset('img/foto3.jpg') }}">
         </div>
 
         <div class="product-info">

@@ -1,27 +1,24 @@
+<link rel="stylesheet" href="{{ asset('css/admin-forms.css') }}">
+
 @extends('layouts.app')
 
 @section('title', 'Add Category')
 
 @section('content')
-  <div style="max-width: 400px; margin: 80px auto;">
+<div class="admin-form-wrapper">
     <h2>Add Category</h2>
 
     <form method="POST" action="{{ route('categories.store') }}">
-      @csrf
+        @csrf
 
-      <div style="margin-bottom: 16px;">
-        <input
-          type="text"
-          name="name"
-          placeholder="Category name"
-          required
-          style="width:100%; padding:10px;"
-        >
-      </div>
+        <div class="admin-form-group">
+            <label>Category name</label>
+            <input type="text" name="name" required>
+        </div>
 
-      <button type="submit" class="admin-add-btn">
-        Save
-      </button>
+        <button class="admin-add-btn">
+            Create Category
+        </button>
     </form>
-  </div>
+</div>
 @endsection
