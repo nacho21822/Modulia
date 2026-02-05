@@ -10,21 +10,31 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     public function login(Request $request)
-    {
-        $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
+{
+    // 1. PRIMERA BARRERA (Formato)
+    $credentials = $request->validate([
+        'email' => 'required|email',
+        'password' => 'required'
+    ], [
+        // Aquí personalizas los mensajes automáticos de Laravel
+        'email.required' => 'Please enter your email.',
+        'email.email' => 'The format is incorrect (missing @ or domain).', // <--- AQUÍ CAMBIAS ESE MENSAJE
+        'password.required' => 'Please enter your password.'
+    ]);
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->route('home');
-        }
+    // 2. SEGUNDA BARRERA (Base de datos / Contraseña real)
+    if (Auth::attempt($credentials)) {
+        $request->session()->regenerate();
 
-        return back()->withErrors([
-            'email' => 'Invalid credentials',
-        ]);
+        return redirect()->route('home')
+            ->with('welcome', 'Welcome back! You are now logged in.');
     }
+
+    // Si llega aquí, es que el formato estaba bien, pero la contraseña no.
+    return back()->withErrors([
+        'email' => 'Invalid email or password',
+    ]);
+}
 
     public function register(Request $request)
 {
@@ -47,7 +57,7 @@ class AuthController extends Controller
     // 3. Auto-Login
     Auth::login($user);
 
-    // Guarda el mensaje en la sesión manualmente
+    // Store success message in English
     session()->flash('success', 'Your account has been created successfully.');
 
     return view('login');

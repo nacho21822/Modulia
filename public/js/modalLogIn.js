@@ -5,7 +5,6 @@ const signUpButton = document.getElementById("signUp");
 const signInButton = document.getElementById("signIn");
 const container = document.getElementById("container");
 
-// Verificamos que existan los elementos del slider antes de añadir eventos
 if (signUpButton && signInButton && container) {
     signUpButton.addEventListener("click", () => {
         container.classList.add("right-panel-active");
@@ -20,27 +19,21 @@ if (signUpButton && signInButton && container) {
    2. VALIDACIÓN DEL FORMULARIO DE REGISTRO
    ========================================= */
 
-// Selección de elementos
 const registerForm = document.getElementById('registerForm');
 const nameInput = document.getElementById('regName');
 const emailInput = document.getElementById('regEmail');
 const passInput = document.getElementById('regPassword');
 const confirmInput = document.getElementById('regConfirm');
 
-// Elementos de la lista de requisitos (para ponerlos en verde)
 const reqLen = document.getElementById('req-len');
 const reqUpper = document.getElementById('req-upper');
 const reqNum = document.getElementById('req-num');
 
-// Solo ejecutamos la validación si el formulario existe
 if (registerForm) {
-
-    // --- A) VALIDACIÓN EN TIEMPO REAL (Lista de requisitos) ---
+    // --- A) VALIDACIÓN EN TIEMPO REAL ---
     if (passInput) {
         passInput.addEventListener('input', () => {
             const val = passInput.value;
-            
-            // Si cumple la regla, añadimos la clase 'valid' (definida en tu CSS)
             val.length >= 8 ? reqLen.classList.add('valid') : reqLen.classList.remove('valid');
             /[A-Z]/.test(val) ? reqUpper.classList.add('valid') : reqUpper.classList.remove('valid');
             /[0-9]/.test(val) ? reqNum.classList.add('valid') : reqNum.classList.remove('valid');
@@ -51,11 +44,10 @@ if (registerForm) {
     registerForm.addEventListener('submit', (e) => {
         let hayErrores = false;
 
-        // Función auxiliar para activar la clase .error del CSS
         const toggleError = (input, mostrar) => {
-            const group = input.parentElement; // Busca el div .input-group padre
+            const group = input.parentElement;
             if (mostrar) {
-                group.classList.add('error'); // Esto activa el borde rojo y el texto
+                group.classList.add('error');
             } else {
                 group.classList.remove('error');
             }
@@ -78,10 +70,9 @@ if (registerForm) {
             toggleError(emailInput, false);
         }
 
-        // 3. Validar Contraseña (Seguridad)
+        // 3. Validar Contraseña
         const val = passInput.value;
         const passOk = val.length >= 8 && /[A-Z]/.test(val) && /[0-9]/.test(val);
-        
         if (!passOk) {
             toggleError(passInput, true);
             hayErrores = true;
@@ -89,7 +80,7 @@ if (registerForm) {
             toggleError(passInput, false);
         }
 
-        // 4. Validar Confirmación (Coincidencia)
+        // 4. Validar Confirmación
         if (confirmInput.value !== val || confirmInput.value === "") {
             toggleError(confirmInput, true);
             hayErrores = true;
@@ -97,7 +88,6 @@ if (registerForm) {
             toggleError(confirmInput, false);
         }
 
-        // Si hay errores, cancelamos el envío al servidor
         if (hayErrores) {
             e.preventDefault();
         }
@@ -105,21 +95,17 @@ if (registerForm) {
 }
 
 /* =========================================
-   3. LÓGICA DEL MODAL DE ÉXITO Y REDIRECCIÓN
+   3. LÓGICA DEL MODAL DE ÉXITO (REGISTRO)
    ========================================= */
 const modal = document.getElementById('successModal');
 const closeBtn = document.getElementById('closeModalBtn');
 
 if (modal && closeBtn) {
     closeBtn.addEventListener('click', () => {
-        // 1. Efecto visual de cierre (opcional, queda bonito)
         modal.style.opacity = '0';
         modal.style.transition = 'opacity 0.3s ease';
-
-        // 2. Leer la ruta a la que debemos ir (del HTML)
         const redirectUrl = closeBtn.getAttribute('data-redirect');
 
-        // 3. Redirigir al usuario tras una pequeña pausa
         setTimeout(() => {
             if (redirectUrl) {
                 window.location.href = redirectUrl;
@@ -128,4 +114,58 @@ if (modal && closeBtn) {
             }
         }, 300);
     });
+}
+
+/* =========================================
+   4. VALIDACIÓN DEL LOGIN (NUEVO)
+   ========================================= */
+// Seleccionamos los elementos del Login por los IDs que pusimos en el HTML
+const loginForm = document.getElementById('loginForm');
+const loginEmail = document.getElementById('loginEmail');
+const loginPass = document.getElementById('loginPassword');
+
+if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+        let hayErroresLogin = false;
+
+        // Función para activar el rojo (reutilizada conceptualmente)
+        const toggleLoginError = (input, mostrar) => {
+            const group = input.parentElement; 
+            if (mostrar) {
+                group.classList.add('error');
+            } else {
+                group.classList.remove('error');
+            }
+        };
+
+        // 1. Validar Email Vacío
+        if (loginEmail.value.trim() === "") {
+            toggleLoginError(loginEmail, true);
+            hayErroresLogin = true;
+        } else {
+            toggleLoginError(loginEmail, false);
+        }
+
+        // 2. Validar Password Vacío
+        if (loginPass.value.trim() === "") {
+            toggleLoginError(loginPass, true);
+            hayErroresLogin = true;
+        } else {
+            toggleLoginError(loginPass, false);
+        }
+
+        // Si falta algún dato, NO enviamos el formulario
+        if (hayErroresLogin) {
+            e.preventDefault();
+        }
+    });
+
+    // Extra: Quitar el rojo en cuanto el usuario escriba algo
+    if (loginEmail && loginPass) {
+        [loginEmail, loginPass].forEach(input => {
+            input.addEventListener('input', () => {
+                input.parentElement.classList.remove('error');
+            });
+        });
+    }
 }

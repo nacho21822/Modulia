@@ -53,17 +53,32 @@
   </div>
 
   <div class="form-container sign-in-container">
-    <form method="POST" action="{{ route('login.post') }}">
+    <form method="POST" action="{{ route('login.post') }}" id="loginForm" novalidate>
       @csrf
 
-      <h1>Sign in</h1>
+      <h1>Sign In</h1>
       <span>or use your account</span>
 
-      {{-- ❌ CAMBIO 1: AQUÍ HE BORRADO EL BLOQUE @if QUE TENÍAS ANTES --}}
-      {{-- Ya no queremos que el mensaje salga aquí dentro --}}
+      <div class="input-group">
+        {{-- value="{{ old('email') }}" mantiene el email escrito si falla la contraseña --}}
+        <input type="email" id="loginEmail" name="email" placeholder="Email" value="{{ old('email') }}" required />
+        
+        {{-- 1. ERROR DE LARAVEL (Tu mensaje del Controlador) --}}
+        {{-- Esto mostrará: "Invalid email or password" en rojo --}}
+        @error('email')
+            <small class="server-error">{{ $message }}</small>
+        @enderror
 
-      <input type="email" name="email" placeholder="Email" required />
-      <input type="password" name="password" placeholder="Password" required />
+        {{-- 2. Error de JS (Solo si el campo está vacío) --}}
+        <small class="error-text">Email is required</small>
+      </div>
+
+      <div class="input-group">
+        <input type="password" id="loginPassword" name="password" placeholder="Password" required />
+        
+        {{-- Error de JS (Campo vacío) --}}
+        <small class="error-text">Password is required</small>
+      </div>
 
       <button type="submit">Sign In</button>
     </form>
@@ -73,7 +88,7 @@
     <div class="overlay">
       <div class="overlay-panel overlay-left">
         <h1>Welcome Back!</h1>
-        <p>To keep connected with us please login with your personal info</p>
+        <p>To stay connected please log in with your personal info</p>
         <button class="ghost" id="signIn">Sign In</button>
       </div>
       <div class="overlay-panel overlay-right">
@@ -90,7 +105,10 @@
 @if (session('success'))
     <div class="modal-backdrop" id="successModal">
         <div class="modal-content">
-            <div class="success-icon">✔</div>
+            
+            {{-- CAMBIO AQUÍ: Nueva clase 'modal-icon' --}}
+            <img src="{{ asset('img/si.png') }}" alt="Success" class="modal-icon" />
+            
             <h2>Registration Successful!</h2>
             <p>{{ session('success') }}</p>
             

@@ -4,9 +4,22 @@
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/home.css') }}" />
-    @endpush
+@endpush
 
 @section('content')
+
+    @section('content')
+
+    {{-- NOTIFICACIÓN DE BIENVENIDA (TOAST) --}}
+    @if (session('welcome'))
+    <div class="welcome-toast">
+        <div class="toast-content">
+            <img src="{{ asset('img/si.png') }}" alt="Icono" class="toast-img" />
+            <p>{{ session('welcome') }}</p>
+        </div>
+        <div class="toast-progress"></div>
+    </div>
+@endif
 
     <section class="hero">
         <h1 class="hero-text">
