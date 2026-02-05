@@ -22,28 +22,36 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Credenciales incorrectas',
+            'email' => 'Invalid credentials',
         ]);
     }
 
     public function register(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
-        ]);
+{
+    // 1. Validar
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users',
+        'password' => 'required|min:8',
+        'password_confirmation' => 'required|same:password',
+    ]);
 
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'role' => 'user',
-        ]);
+    // 2. Crear Usuario
+    $user = User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => Hash::make($request->password),
+        'role' => 'user', 
+    ]);
 
-        return redirect()->route('login');
-    }
+    // 3. Auto-Login
+    Auth::login($user);
 
+    // Guarda el mensaje en la sesión manualmente
+    session()->flash('success', 'Your account has been created successfully.');
+
+    return view('login');
+}
     public function logout(Request $request)
     {
         Auth::logout();

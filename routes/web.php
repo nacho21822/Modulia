@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContainerController;
+use App\Http\Controllers\Admin\AdminContainerController;
+use App\Http\Controllers\Admin\AdminCategoryController;
+
 
 Route::get('/', function () {
     return view('home');
@@ -12,14 +15,37 @@ Route::get('/contacto', function () {
     return view('contacto');
 })->name('contacto');
 
-Route::get('/products', [ContainerController::class, 'index'])->name('products.index');
-
 Route::get('/login', function () {
     return view('login');
 })->name('login');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
-
 Route::post('/register', [AuthController::class, 'register'])->name('register.post');
-
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+Route::middleware('mustAuth')->group(function () {
+    Route::get('/products', [ContainerController::class, 'index'])
+        ->name('products.index');
+});
+
+
+
+Route::middleware(['mustAuth', 'admin'])->group(function () {
+
+    Route::resource('containers', AdminContainerController::class)
+        ->except(['show', 'index']);
+
+    Route::resource('categories', AdminCategoryController::class)
+        ->except(['show', 'index']);
+});
+
+Route::middleware(['mustAuth', 'admin'])->group(function () {
+    Route::resource('categories', AdminCategoryController::class)
+        ->only(['create', 'store']);
+});
+
+Route::middleware(['mustAuth', 'admin'])->group(function () {
+    Route::resource('containers', AdminContainerController::class)
+        ->except(['index', 'show']);
+});

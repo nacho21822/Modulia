@@ -58,31 +58,38 @@
       </p>
     </section>
 
-    <section class="cards-section">
-      <div class="cards-container">
-        <a href="{{ route('products.index') }}" class="card">
-          <img src="{{ asset('img/foto4.jpg') }}" alt="Container Homes" />
-          <div class="card-overlay">
-            <h3>CONTAINER HOMES</h3>
-            <p>Transform shipping containers into beautiful, sustainable homes.</p>
-          </div>
-        </a>
-        <a href="{{ route('products.index') }}" class="card">
-          <img src="{{ asset('img/category-offices.jpg') }}" alt="Office Spaces" />
-          <div class="card-overlay">
-            <h3>OFFICE SPACES</h3>
-            <p>Modern, efficient office solutions.</p>
-          </div>
-        </a>
-        <a href="{{ route('products.index') }}" class="card">
-          <img src="{{ asset('img/comercial1.jpg') }}" alt="Commercial" />
-          <div class="card-overlay">
-            <h3>COMMERCIAL</h3>
-            <p>Pop-up shops, cafes, restaurants.</p>
-          </div>
-        </a>
-      </div>
-    </section>
+  <section class="cards-section">
+    <div class="cards-container">
+    
+      {{-- TARJETA 1: HOMES --}}
+      <a href="{{ route('products.index', ['category' => 'Container Homes']) }}" class="card">
+        <img src="{{ asset('img/foto4.jpg') }}" alt="Container Homes" />
+        <div class="card-overlay">
+          <h3>CONTAINER HOMES</h3>
+          <p>Transform shipping containers into beautiful, sustainable homes.</p>
+        </div>
+      </a>
+
+      {{-- TARJETA 2: OFFICES --}}
+      <a href="{{ route('products.index', ['category' => 'Office Spaces']) }}" class="card">
+        <img src="{{ asset('img/category-offices.jpg') }}" alt="Office Spaces" />
+        <div class="card-overlay">
+          <h3>OFFICE SPACES</h3>
+          <p>Modern, efficient office solutions.</p>
+        </div>
+      </a>
+
+      {{-- TARJETA 3: COMMERCIAL --}}
+      <a href="{{ route('products.index', ['category' => 'Commercial']) }}" class="card">
+        <img src="{{ asset('img/comercial1.jpg') }}" alt="Commercial" />
+        <div class="card-overlay">
+          <h3>COMMERCIAL</h3>
+          <p>Pop-up shops, cafes, restaurants.</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
 
     <section class="scroll-story">
       <div class="scroll-sticky">
