@@ -339,6 +339,37 @@ input {
     transform: scale(0.95);
 }
 
+/* Error que viene del servidor (Laravel) */
+.server-error {
+    color: #dc3545; /* Rojo estándar de error */
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: -5px; /* Lo pegamos un poco al input de arriba */
+    margin-bottom: 10px;
+    display: block; /* Aseguramos que se vea */
+    text-align: left;
+    width: 100%;
+    animation: shake 0.3s ease-in-out; /* Animación de vibración */
+}
+
+/* --- ICONO DEL MODAL --- */
+.modal-icon {
+    width: 80px; /* Tamaño controlado (puedes probar 100px si lo quieres más grande) */
+    height: auto; /* Mantiene la proporción para que no se estire */
+    display: block; /* Necesario para usar margin auto */
+    margin: 0 auto 20px auto; /* Centrado horizontal y separación inferior */
+    object-fit: contain;
+}
+
+/* Animación de vibración para que se note el error */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
 /* Animaciones */
 @keyframes fadeIn {
     from {
