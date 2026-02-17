@@ -14,7 +14,11 @@
         @endauth
 
         <div class="product-img">
-            <img src="{{ $container->image ?? asset('img/foto3.jpg') }}">
+            {{-- CORRECCIÓN: Alt descriptivo para accesibilidad --}}
+            <img
+                src="{{ $container->image ?? asset('img/foto3.jpg') }}"
+                alt="{{ $container->name }}"
+            >
         </div>
 
         <div class="product-info">
@@ -25,16 +29,15 @@
                 ${{ number_format($container->price, 0, ',', '.') }}
             </span>
 
-            {{-- CARRITO --}}
             <form action="{{ route('cart.add', $container->id) }}" method="POST">
                 @csrf
                 <button type="submit" class="add-cart-btn">
                     Add to cart
                 </button>
             </form>
-
         </div>
+
     </article>
 @empty
-    <p>No se encontraron productos con esos filtros.</p>
+    <p>No products found with those filters.</p>
 @endforelse

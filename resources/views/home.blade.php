@@ -8,8 +8,6 @@
 
 @section('content')
 
-    @section('content')
-
     {{-- NOTIFICACIÓN DE BIENVENIDA (TOAST) --}}
     @if (session('welcome'))
     <div class="welcome-toast">

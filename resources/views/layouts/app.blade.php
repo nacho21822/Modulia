@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <title>Modulia - @yield('title')</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -15,12 +15,16 @@
 
     @stack('styles')
   </head>
-  
+
   <body>
 
     @include('header')
 
-    <main>
+    {{--
+        padding-top: 80px empuja el contenido debajo del header fijo.
+        En home no importa porque el hero ocupa 100vh igualmente.
+    --}}
+    <main style="padding-top: 80px;">
         @yield('content')
     </main>
 
@@ -29,6 +33,6 @@
     <script src="{{ asset('js/home.js') }}"></script>
 
     @stack('scripts')
-    
+
   </body>
 </html>

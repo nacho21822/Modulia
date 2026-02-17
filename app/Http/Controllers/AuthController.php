@@ -10,58 +10,57 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     public function login(Request $request)
-{
-    // 1. PRIMERA BARRERA (Formato)
-    $credentials = $request->validate([
-        'email' => 'required|email',
-        'password' => 'required'
-    ], [
-        // Aquí personalizas los mensajes automáticos de Laravel
-        'email.required' => 'Please enter your email.',
-        'email.email' => 'The format is incorrect (missing @ or domain).', // <--- AQUÍ CAMBIAS ESE MENSAJE
-        'password.required' => 'Please enter your password.'
-    ]);
+    {
+        // 1. Validar formato del formulario
+        $credentials = $request->validate([
+            'email'    => 'required|email',
+            'password' => 'required',
+        ], [
+            'email.required'    => 'Please enter your email.',
+            'email.email'       => 'The format is incorrect (missing @ or domain).',
+            'password.required' => 'Please enter your password.',
+        ]);
 
-    // 2. SEGUNDA BARRERA (Base de datos / Contraseña real)
-    if (Auth::attempt($credentials)) {
-        $request->session()->regenerate();
+        // 2. Comprobar credenciales contra la base de datos
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
 
-        return redirect()->route('home')
-            ->with('welcome', 'Welcome back! You are now logged in.');
+            return redirect()->route('home')
+                ->with('welcome', 'Welcome back! You are now logged in.');
+        }
+
+        // 3. Si las credenciales son incorrectas, volver al login con error
+        return back()->withErrors([
+            'email' => 'Invalid email or password.',
+        ]);
     }
 
-    // Si llega aquí, es que el formato estaba bien, pero la contraseña no.
-    return back()->withErrors([
-        'email' => 'Invalid email or password',
-    ]);
-}
-
     public function register(Request $request)
-{
-    // 1. Validar
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|email|unique:users',
-        'password' => 'required|min:8',
-        'password_confirmation' => 'required|same:password',
-    ]);
+    {
+        // 1. Validar los datos del formulario
+        $request->validate([
+            'name'                  => 'required|string|max:255',
+            'email'                 => 'required|email|unique:users',
+            'password'              => 'required|min:8',
+            'password_confirmation' => 'required|same:password',
+        ]);
 
-    // 2. Crear Usuario
-    $user = User::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'password' => Hash::make($request->password),
-        'role' => 'user', 
-    ]);
+        // 2. Crear el usuario con contraseña encriptada
+        $user = User::create([
+            'name'     => $request->name,
+            'email'    => $request->email,
+            'password' => Hash::make($request->password),
+            'role'     => 'user',
+        ]);
 
-    // 3. Auto-Login
-    Auth::login($user);
+        // 3. Iniciar sesión automáticamente
+        Auth::login($user);
 
-    // Store success message in English
-    session()->flash('success', 'Your account has been created successfully.');
+        // 4. CORRECCIÓN: Redirigir a home (no devolver una vista directamente)
+        return redirect()->route('home')
+            ->with('success', 'Your account has been created successfully!');
+    }
 
-    return view('login');
-}
     public function logout(Request $request)
     {
         Auth::logout();

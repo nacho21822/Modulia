@@ -1,0 +1,130 @@
+/* ============================================
+   PROFILE PAGE — MODULIA
+   ============================================ */
+
+.profile-wrapper {
+    max-width: 680px;
+    margin: 100px auto 80px;
+    padding: 0 20px;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* --- Cabecera con avatar --- */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.profile-avatar {
+    /* Círculo con la inicial del nombre */
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #111;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.profile-header-info h1 {
+    font-size: 26px;
+    font-weight: 400;
+    margin: 0 0 6px 0;
+}
+
+.profile-role-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #f0f0f0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #555;
+}
+
+/* --- Tarjeta de datos --- */
+.profile-card {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.profile-section-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #999;
+    margin: 0 0 24px 0;
+}
+
+/* Cada fila de dato */
+.profile-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.profile-field:last-child {
+    border-bottom: none;
+}
+
+.profile-label {
+    font-size: 0.85rem;
+    color: #999;
+    font-weight: 500;
+}
+
+.profile-value {
+    font-size: 0.95rem;
+    color: #111;
+    font-weight: 400;
+}
+
+/* --- Botones de acción --- */
+.profile-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.profile-btn-edit {
+    padding: 12px 28px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: not-allowed;  /* Indica que está deshabilitado */
+    opacity: 0.5;
+    color: #333;
+}
+
+.profile-btn-back {
+    padding: 12px 28px;
+    border-radius: 10px;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+.profile-btn-back:hover {
+    background: #333;
+}
