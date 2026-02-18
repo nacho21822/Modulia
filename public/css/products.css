@@ -248,3 +248,52 @@ body {
     text-decoration: none;
     font-size: 14px;
 }
+
+/* ================================ */
+/* RESPONSIVE MOBILE                */
+/* ================================ */
+@media (max-width: 768px) {
+    .products-header {
+        padding: 90px 5% 40px;
+    }
+
+    .products-header h1 {
+        font-size: 34px;
+    }
+
+    .products-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 5% 80px;
+    }
+
+    .filters {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding-right: 0;
+        padding-bottom: 30px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .product-img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-header h1 {
+        font-size: 26px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-img {
+        height: 220px;
+    }
+}

@@ -4,7 +4,13 @@
     <img src="{{ asset('img/logo.png') }}" alt="Logo" class="logo" />
   </a>
 
-  <nav class="nav-buttons">
+  <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="nav-buttons" id="navButtons">
 
     <a href="{{ route('products.index') }}" class="button">Our Products</a>
     <a href="{{ route('contacto') }}" class="button">Contact</a>
@@ -53,6 +59,12 @@
         </ul>
       </div>
     @endauth
+
+    {{-- Botón cerrar (solo móvil) --}}
+    <button class="nav-close" id="navClose" aria-label="Cerrar menú">
+      <span></span>
+      <span></span>
+    </button>
 
   </nav>
 </header>

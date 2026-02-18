@@ -398,3 +398,63 @@ input {
     font-size: 0.9rem;
     text-align: center;
 }
+
+/* ================================ */
+/* RESPONSIVE MOBILE                */
+/* ================================ */
+@media (max-width: 768px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+        padding: 40px 0;
+        align-items: flex-start;
+    }
+
+    .container {
+        width: 95%;
+        min-height: auto;
+        border-radius: 8px;
+    }
+
+    /* En móvil apilamos los paneles verticalmente */
+    .overlay-container {
+        display: none;
+    }
+
+    .sign-in-container,
+    .sign-up-container {
+        position: relative;
+        width: 100%;
+        left: 0;
+        opacity: 1;
+    }
+
+    .sign-up-container {
+        display: none;
+    }
+
+    .container.right-panel-active .sign-in-container {
+        display: none;
+        transform: none;
+    }
+
+    .container.right-panel-active .sign-up-container {
+        display: block;
+        transform: none;
+        animation: none;
+        z-index: 2;
+    }
+
+    form {
+        padding: 30px 24px;
+    }
+
+    .logo-link {
+        top: 16px;
+        left: 16px;
+    }
+
+    .logo {
+        width: 100px;
+    }
+}
