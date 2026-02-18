@@ -1,12 +1,8 @@
 @php
-    $cart = session('cart', []);
-    $total = 0;
-    $count = 0;
-
-    foreach($cart as $item){
-        $total += $item['price'] * $item['quantity'];
-        $count += $item['quantity'];
-    }
+    $miniCart  = auth()->check() ? \App\Models\Cart::getOrCreateForUser(auth()->id()) : null;
+    $miniItems = $miniCart ? $miniCart->items()->with('container')->get() : collect();
+    $total     = $miniItems->sum(fn($i) => $i->price * $i->quantity);
+    $count     = $miniItems->sum('quantity');
 @endphp
 
 <div class="mini-cart">
@@ -16,17 +12,17 @@
     </a>
 
     <div class="mini-cart-body">
-        @if(empty($cart))
+        @if($miniItems->isEmpty())
             <p class="mini-cart-empty">Cart is empty</p>
         @else
             <ul class="mini-cart-list">
-                @foreach($cart as $id => $item)
+                @foreach($miniItems as $item)
                     <li>
-                        <span class="mini-cart-name">{{ $item['name'] }}</span>
+                        <span class="mini-cart-name">{{ $item->container->name }}</span>
                         <span class="mini-cart-price">
-                            ${{ number_format($item['price'], 0, ',', '.') }}
+                            ${{ number_format($item->price, 0, ',', '.') }}
                         </span>
-                        <span class="mini-cart-qty">x{{ $item['quantity'] }}</span>
+                        <span class="mini-cart-qty">x{{ $item->quantity }}</span>
                     </li>
                 @endforeach
             </ul>

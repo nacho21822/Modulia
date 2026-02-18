@@ -24,7 +24,7 @@
         <div class="cart-alert cart-alert-error">{{ session('error') }}</div>
     @endif
 
-    @if(session('cart') && count(session('cart')) > 0)
+    @if($items->count() > 0)
         <table class="cart-table">
             <thead>
                 <tr>
@@ -36,20 +36,15 @@
                 </tr>
             </thead>
             <tbody>
-                @php $total = 0; @endphp
-
-                @foreach(session('cart') as $id => $item)
-                    @php
-                        $subtotal = $item['price'] * $item['quantity'];
-                        $total   += $subtotal;
-                    @endphp
+                @foreach($items as $item)
+                    @php $subtotal = $item->price * $item->quantity; @endphp
                     <tr>
-                        <td>{{ $item['name'] }}</td>
-                        <td>${{ number_format($item['price'], 0, ',', '.') }}</td>
-                        <td>{{ $item['quantity'] }}</td>
+                        <td>{{ $item->container->name }}</td>
+                        <td>${{ number_format($item->price, 0, ',', '.') }}</td>
+                        <td>{{ $item->quantity }}</td>
                         <td>${{ number_format($subtotal, 0, ',', '.') }}</td>
                         <td>
-                            <form action="{{ route('cart.remove', $id) }}" method="POST">
+                            <form action="{{ route('cart.remove', $item->container_id) }}" method="POST">
                                 @csrf
                                 <button type="submit" class="remove-btn">Remove</button>
                             </form>

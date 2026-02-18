@@ -27,6 +27,9 @@
 
     {{-- USUARIO LOGUEADO --}}
     @auth
+      @php
+        $cartCount = auth()->user()->cart?->items()->sum('quantity') ?? 0;
+      @endphp
       <div class="user-menu">
         <button class="button" id="userMenuToggle">
           {{ auth()->user()->name }}
@@ -42,7 +45,9 @@
           </li>
 
           <li>
-            <a href="{{ route('cart.index') }}">My orders</a>
+            <a href="{{ route('cart.index') }}">
+              My Cart{{ $cartCount > 0 ? ' (' . $cartCount . ')' : '' }}
+            </a>
           </li>
 
           @if(auth()->user()->role === 'admin')
