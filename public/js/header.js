@@ -1,4 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Scroll-aware header
+    const header = document.querySelector('.header');
+    if (header) {
+        const onScroll = () => {
+            header.classList.toggle('header--scrolled', window.scrollY > 80);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll(); // aplicar estado inicial por si la página ya está scrolleada
+    }
+
     const toggle = document.getElementById("userMenuToggle");
     const dropdown = document.getElementById("userDropdown");
 
