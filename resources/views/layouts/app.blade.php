@@ -20,13 +20,8 @@
 
     @include('header')
 
-    {{--
-        padding-top: 80px empuja el contenido debajo del header fijo.
-        En home no importa porque el hero ocupa 100vh igualmente.
-    --}}
-    <main style="padding-top: 80px;">
-        @yield('content')
-    </main>
+    @yield('content')
+
 
     @include('footer')
 
