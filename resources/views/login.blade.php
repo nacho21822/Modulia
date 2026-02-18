@@ -18,6 +18,11 @@
   <img src="{{ asset('img/logo.png') }}" alt="Logo" class="logo" />
 </a>
 
+<div class="mobile-tabs">
+  <button class="mobile-tab active" id="mobileSignIn">Sign In</button>
+  <button class="mobile-tab" id="mobileSignUp">Sign Up</button>
+</div>
+
 <div class="container" id="container">
 
   <div class="form-container sign-up-container">

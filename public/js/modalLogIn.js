@@ -169,3 +169,23 @@ if (loginForm) {
         });
     }
 }
+
+/* =========================================
+   5. TABS MÓVIL (Sign In / Sign Up)
+   ========================================= */
+const mobileSignIn = document.getElementById('mobileSignIn');
+const mobileSignUp = document.getElementById('mobileSignUp');
+
+if (mobileSignIn && mobileSignUp && container) {
+    mobileSignIn.addEventListener('click', () => {
+        container.classList.remove('right-panel-active');
+        mobileSignIn.classList.add('active');
+        mobileSignUp.classList.remove('active');
+    });
+
+    mobileSignUp.addEventListener('click', () => {
+        container.classList.add('right-panel-active');
+        mobileSignUp.classList.add('active');
+        mobileSignIn.classList.remove('active');
+    });
+}
