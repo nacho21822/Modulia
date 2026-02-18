@@ -1,7 +1,33 @@
+/* ============================================
+   CART PAGE — MODULIA
+   ============================================ */
+
+/* Alertas de éxito/error */
+.cart-alert {
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.9rem;
+}
+
+.cart-alert-success {
+    background: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+}
+
+.cart-alert-error {
+    background: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+}
+
+/* Contenedor principal */
 .cart-page {
     max-width: 900px;
-    margin: 60px auto;
-    padding: 0 20px;
+    margin: 0 auto 80px;
+    padding: 40px 20px 0;
     font-family: "Montserrat", sans-serif;
 }
 
@@ -11,6 +37,30 @@
     font-weight: 400;
 }
 
+/* Flecha volver */
+.back-link-wrapper {
+    margin-bottom: 30px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #111;
+    text-decoration: none;
+    padding: 8px 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.back-link:hover {
+    border-bottom-color: #111;
+}
+
+/* Tabla */
 .cart-table {
     width: 100%;
     border-collapse: collapse;
@@ -27,35 +77,43 @@
 .cart-table th {
     font-weight: 600;
     color: #555;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .cart-table td {
     font-size: 15px;
 }
 
+/* Total */
 .cart-total {
     text-align: right;
     font-size: 18px;
     margin-bottom: 20px;
 }
 
+/* Botones */
 .remove-btn,
 .clear-cart-btn {
-    background: black;
-    color: white;
+    background: #111;
+    color: #fff;
     border: none;
-    padding: 8px 12px;
+    padding: 8px 14px;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 14px;
-    transition: 0.2s;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s ease;
 }
 
 .remove-btn:hover,
 .clear-cart-btn:hover {
-    background: #222;
+    background: #333;
 }
 
+/* Carrito vacío */
 .empty-cart {
     text-align: center;
     font-size: 16px;

@@ -1,5 +1,10 @@
-<header class="header">
-  
+{{-- Detectamos si estamos en home para poner el header transparente --}}
+@php
+    $isHome = request()->routeIs('home');
+@endphp
+
+<header class="header {{ $isHome ? 'header--transparent' : '' }}">
+
   <a href="{{ route('home') }}">
     <img src="{{ asset('img/logo.png') }}" alt="Logo" class="logo" />
   </a>
@@ -33,16 +38,16 @@
           </li>
 
           <li>
-            <a href="#">My profile</a>
+            <a href="{{ route('profile.show') }}">My profile</a>
           </li>
 
           <li>
-            <a href="#">My orders</a>
+            <a href="{{ route('cart.index') }}">My orders</a>
           </li>
 
           @if(auth()->user()->role === 'admin')
             <li>
-              <a href="/admin">Admin panel</a>
+              <a href="{{ route('containers.create') }}">Admin panel</a>
             </li>
           @endif
 
@@ -69,4 +74,3 @@
   </nav>
 </header>
 <script src="{{ asset('js/header.js') }}"></script>
-
