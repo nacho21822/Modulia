@@ -10,22 +10,49 @@ body {
   color: #111;
 }
 
-/* HERO */
+/* =========================================
+   HERO SECTION (CORREGIDO PARA VIDEO)
+   ========================================= */
 .hero {
-  height: 100vh;
-  background: url("../img/imagenprincipal.jpg") center/cover no-repeat;
   position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden; /* Corta el video si sobra */
+  /* IMPORTANTE: Hemos quitado background: url(...) para usar el video */
 }
 
-/* LOGO */
+/* Estilos para el video de fondo */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Hace que el video cubra todo sin deformarse */
+  z-index: 1; /* Nivel 1: Al fondo del todo */
+}
+
+/* Capa oscura para que el texto blanco se lea bien */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Oscuridad al 30% */
+  z-index: 2; /* Nivel 2: Encima del video */
+}
+
+/* LOGO (Si lo usas) */
 .hero-logo {
   position: absolute;
   top: 40px;
   left: 40px;
   width: 180px;
+  z-index: 3; /* Nivel 3: Encima del overlay */
 }
 
-/* TEXT */
+/* TEXTO PRINCIPAL */
 .hero-text {
   position: absolute;
   top: 52%;
@@ -35,13 +62,14 @@ body {
   font-size: 26px;
   font-weight: 300;
   line-height: 1.4;
+  z-index: 3; /* Nivel 3: Encima del overlay */
 }
 
 .hero-text span {
   font-weight: 1000;
 }
 
-/* BUTTON + */
+/* BOTÓN + */
 .hero-plus {
   position: absolute;
   bottom: 40px;
@@ -56,7 +84,12 @@ body {
   justify-content: center;
   border-radius: 50%;
   cursor: pointer;
+  z-index: 3; /* Nivel 3: Encima del overlay */
 }
+
+/* =========================================
+   RESTO DEL DISEÑO ORIGINAL
+   ========================================= */
 
 /* CLAIM */
 .claim {
@@ -165,25 +198,25 @@ body {
 }
 
 .secondary-btn {
-    all: unset;
-    color: #fff;
-    border: none;
-    text-decoration: none;
-    padding: 18px 25px;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    cursor: pointer;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    background-color: rgba(185, 173, 173, 0.6);
+  all: unset;
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  padding: 18px 25px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  background-color: rgba(185, 173, 173, 0.6);
 }
 
 .secondary-btn:hover {
-    border-radius: 30px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    backdrop-filter: none;
+  border-radius: 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: none;
 }
 
 .compare-container {
@@ -418,285 +451,282 @@ body {
 
 /* --- NOTIFICACIÓN TOAST (Estilo Modulia Premium) --- */
 .welcome-toast {
-    position: fixed;
-    top: 30px;
-    left: 50%; 
-    transform: translateX(-50%); 
-    
-    background: #ffffff;
-    padding: 0;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
-    z-index: 9999;
-    overflow: hidden;
-    min-width: 300px;
-    border: 1px solid #f0f0f0;
-
-    /* Animación: Baja, espera, sube */
-    animation: slideDownUp 4s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  padding: 0;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  overflow: hidden;
+  min-width: 300px;
+  border: 1px solid #f0f0f0;
+  /* Animación: Baja, espera, sube */
+  animation: slideDownUp 4s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
 }
 
 /* Ajustamos el contenedor para que la imagen y el texto se alineen bien */
 .toast-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px 25px;
-    gap: 12px; /* Espacio entre imagen y texto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 25px;
+  gap: 12px; /* Espacio entre imagen y texto */
 }
 
 .toast-icon {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .welcome-toast p {
-    margin: 0;
-    color: #111; 
-    font-family: "Montserrat", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+  margin: 0;
+  color: #111;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 /* barrita de tiempo */
 .toast-progress {
-    height: 3px;
-    background: #111;
-    width: 100%;
-    animation: progressBar 3.4s linear forwards;
+  height: 3px;
+  background: #111;
+  width: 100%;
+  animation: progressBar 3.4s linear forwards;
 }
 
 /* Clase específica para la imagen del Toast */
 .toast-img {
-    width: 24px;  /* Tamaño pequeño y discreto */
-    height: 24px;
-    object-fit: contain; /* Para que no se deforme */
-    display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain; /* Para que no se deforme */
+  display: block;
 }
 
 /* --- ANIMACIONES (Keyframes) --- */
-
 /* Efecto de bajada elástica */
 @keyframes slideDownUp {
-    0% {
-        transform: translate(-50%, -100px); /* Empieza fuera, arriba */
-        opacity: 0;
-    }
-    10% {
-        transform: translate(-50%, 0); /* Baja a su sitio */
-        opacity: 1;
-    }
-    85% {
-        transform: translate(-50%, 0); /* Se queda quieto */
-        opacity: 1;
-    }
-    100% {
-        transform: translate(-50%, -100px); /* Sube y desaparece */
-        opacity: 0;
-    }
+  0% {
+    transform: translate(-50%, -100px); /* Empieza fuera, arriba */
+    opacity: 0;
+  }
+  10% {
+    transform: translate(-50%, 0); /* Baja a su sitio */
+    opacity: 1;
+  }
+  85% {
+    transform: translate(-50%, 0); /* Se queda quieto */
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -100px); /* Sube y desaparece */
+    opacity: 0;
+  }
 }
 
 /* Barra de progreso reduciéndose */
 @keyframes progressBar {
-    0% { width: 100%; }
-    100% { width: 0%; }
+  0% { width: 100%; }
+  100% { width: 0%; }
 }
 
 /* ================================ */
 /* RESPONSIVE MOBILE                */
 /* ================================ */
 @media (max-width: 768px) {
-    /* HERO */
-    .hero {
-        height: 90vh;
-        background-position: center top;
-    }
+  /* HERO */
+  .hero {
+    height: 90vh;
+    /* Quitamos el background-position porque ya no hay imagen */
+  }
 
-    .hero-text {
-        top: auto;
-        bottom: 80px;
-        left: 24px;
-        right: 24px;
-        transform: none;
-        width: auto;
-        text-align: left;
-        font-size: 22px;
-    }
+  .hero-text {
+    top: auto;
+    bottom: 80px;
+    left: 24px;
+    right: 24px;
+    transform: none;
+    width: auto;
+    text-align: left;
+    font-size: 22px;
+  }
 
-    .hero-logo {
-        width: 120px;
-        top: 20px;
-        left: 20px;
-    }
+  .hero-logo {
+    width: 120px;
+    top: 20px;
+    left: 20px;
+  }
 
-    .hero-plus {
-        width: 44px;
-        height: 44px;
-        font-size: 26px;
-        bottom: 24px;
-        right: 20px;
-    }
+  .hero-plus {
+    width: 44px;
+    height: 44px;
+    font-size: 26px;
+    bottom: 24px;
+    right: 20px;
+  }
 
-    /* CLAIM */
-    .claim {
-        padding: 50px 20px;
-    }
+  /* CLAIM */
+  .claim {
+    padding: 50px 20px;
+  }
 
-    .claim p {
-        font-size: 22px;
-    }
+  .claim p {
+    font-size: 22px;
+  }
 
-    /* FEATURES */
-    .features-section {
-        padding: 40px 0;
-    }
+  /* FEATURES */
+  .features-section {
+    padding: 40px 0;
+  }
 
-    .features-wrapper {
-        width: 95%;
-    }
+  .features-wrapper {
+    width: 95%;
+  }
 
-    #featuresImage {
-        height: 320px;
-    }
+  #featuresImage {
+    height: 320px;
+  }
 
-    /* COMPARE */
-    .compare-container {
-        height: 260px;
-        width: 95%;
-    }
+  /* COMPARE */
+  .compare-container {
+    height: 260px;
+    width: 95%;
+  }
 
-    .compare-wrapper {
-        padding: 40px 0;
-    }
+  .compare-wrapper {
+    padding: 40px 0;
+  }
 
-    /* CATEGORIES */
-    .categories {
-        padding: 50px 20px;
-    }
+  /* CATEGORIES */
+  .categories {
+    padding: 50px 20px;
+  }
 
-    .categories p {
-        font-size: 22px;
-    }
+  .categories p {
+    font-size: 22px;
+  }
 
-    /* CARDS */
-    .cards-section {
-        padding: 40px 4%;
-    }
+  /* CARDS */
+  .cards-section {
+    padding: 40px 4%;
+  }
 
-    .cards-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
+  .cards-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 
-    .card {
-        height: 280px;
-    }
+  .card {
+    height: 280px;
+  }
 
-    .card-overlay {
-        opacity: 1;
-    }
+  .card-overlay {
+    opacity: 1;
+  }
 
-    /* FINAL */
-    .final {
-        padding: 50px 20px;
-    }
+  /* FINAL */
+  .final {
+    padding: 50px 20px;
+  }
 
-    .final p {
-        font-size: 22px;
-    }
+  .final p {
+    font-size: 22px;
+  }
 
-    /* SCROLL STORY — layout sticky en columna */
-    .scroll-story {
-        height: 300vh;
-        margin-bottom: 60px;
-        margin-top: 60px;
-    }
+  /* SCROLL STORY — layout sticky en columna */
+  .scroll-story {
+    height: 300vh;
+    margin-bottom: 60px;
+    margin-top: 60px;
+  }
 
-    .scroll-sticky {
-        position: sticky;
-        top: 0;
-        height: 100vh;
-        flex-direction: column;
-        padding: 0;
-        overflow: hidden;
-    }
+  .scroll-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+  }
 
-    /* Imagen ocupa la mitad superior */
-    .story-images {
-        order: -1;
-        width: 100%;
-        height: 45vh;
-        position: relative;
-        flex-shrink: 0;
-    }
+  /* Imagen ocupa la mitad superior */
+  .story-images {
+    order: -1;
+    width: 100%;
+    height: 45vh;
+    position: relative;
+    flex-shrink: 0;
+  }
 
-    /* Frases ocupan la mitad inferior */
-    .story-text {
-        width: 100%;
-        flex: 1;
-        padding: 16px 20px;
-        overflow: hidden;
-        background: #f6f6f6;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+  /* Frases ocupan la mitad inferior */
+  .story-text {
+    width: 100%;
+    flex: 1;
+    padding: 16px 20px;
+    overflow: hidden;
+    background: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-    .story-item {
-        opacity: 0.35;
-        font-size: 15px;
-        margin: 0;
-        padding: 10px 0 10px 16px;
-        border-bottom: 1px solid #e0e0e0;
-        line-height: 1.4;
-    }
+  .story-item {
+    opacity: 0.35;
+    font-size: 15px;
+    margin: 0;
+    padding: 10px 0 10px 16px;
+    border-bottom: 1px solid #e0e0e0;
+    line-height: 1.4;
+  }
 
-    .story-item:last-child {
-        border-bottom: none;
-    }
+  .story-item:last-child {
+    border-bottom: none;
+  }
 
-    .story-item.active {
-        opacity: 1;
-        font-weight: 700;
-        transform: none;
-        color: #111;
-    }
+  .story-item.active {
+    opacity: 1;
+    font-weight: 700;
+    transform: none;
+    color: #111;
+  }
 
-    .story-item.active::before {
-        height: 60%;
-    }
+  .story-item.active::before {
+    height: 60%;
+  }
 
-    /* TOAST */
-    .welcome-toast {
-        min-width: 260px;
-        top: 80px;
-    }
+  /* TOAST */
+  .welcome-toast {
+    min-width: 260px;
+    top: 80px;
+  }
 }
 
 @media (max-width: 480px) {
-    .hero-text {
-        font-size: 16px;
-    }
+  .hero-text {
+    font-size: 16px;
+  }
 
-    .claim p,
-    .final p,
-    .categories p {
-        font-size: 18px;
-    }
+  .claim p,
+  .final p,
+  .categories p {
+    font-size: 18px;
+  }
 
-    .cards-container {
-        grid-template-columns: 1fr;
-    }
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
 
-    .card {
-        height: 240px;
-    }
+  .card {
+    height: 240px;
+  }
 
-    #featuresImage {
-        height: 240px;
-    }
+  #featuresImage {
+    height: 240px;
+  }
 
-    .story-item {
-        font-size: 20px;
-    }
+  .story-item {
+    font-size: 20px;
+  }
 }

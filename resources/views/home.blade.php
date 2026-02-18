@@ -20,11 +20,21 @@
 @endif
 
     <section class="hero">
+        {{-- VIDEO DE FONDO --}}
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="{{ asset('img/videoFinal.mp4') }}" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        {{-- CAPA OSCURA (OPCIONAL, PARA QUE SE LEA EL TEXTO) --}}
+        <div class="hero-overlay"></div>
+
+        {{-- CONTENIDO DEL HERO --}}
         <h1 class="hero-text">
-        MODULAR SOLUTIONS FOR A NEW<br />
-        <span>WAY OF LIVING</span>
-      </h1>
-      <div class="hero-plus">+</div>
+            MODULAR SOLUTIONS FOR A NEW<br />
+            <span>WAY OF LIVING</span>
+        </h1>
+        <div class="hero-plus">+</div>
     </section>
 
     <section class="claim">
