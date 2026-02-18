@@ -8,7 +8,6 @@ body {
 }
 
 /* --- HEADER FIJO --- */
-/* Por defecto: fondo oscuro (funciona en carrito, perfil, etc.) */
 .header {
     position: fixed;
     top: 0;
@@ -19,13 +18,29 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 15px 40px;
-    transition: background-color 0.3s ease;
-    box-sizing: border-box;   /* ← AÑADE ESTO */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
 }
 
-/* Versión transparente: solo para páginas con hero image */
-.header--transparent {
-    background-color: transparent;
+/* Estado scrolled: fondo blanco + sombra suave */
+.header--scrolled {
+    background-color: #fff;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Botones se oscurecen al tener fondo blanco */
+.header--scrolled .button {
+    color: #333;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+@media (min-width: 769px) {
+    .header--scrolled .nav-buttons .button:nth-child(1),
+    .header--scrolled .nav-buttons .button:nth-child(2),
+    .header--scrolled .nav-buttons .button:nth-child(3) {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
 }
 
 /* LOGO */
