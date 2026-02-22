@@ -69,6 +69,10 @@
       <h1>Sign In</h1>
       <span>or use your account</span>
 
+      @if (session('status'))
+        <div class="simple-alert">{{ session('status') }}</div>
+      @endif
+
       <div class="input-group">
         {{-- value="{{ old('email') }}" mantiene el email escrito si falla la contraseña --}}
         <input type="email" id="loginEmail" name="email" placeholder="Email" value="{{ old('email') }}" required />
@@ -91,6 +95,10 @@
       </div>
 
       <button type="submit">Sign In</button>
+
+      <a href="{{ route('password.request') }}" style="margin-top: 15px; font-size: 13px; color: #555;">
+        Forgot your password?
+      </a>
     </form>
   </div>
 

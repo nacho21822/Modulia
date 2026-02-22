@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminContainerController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\EmailVerificationController;
+use App\Http\Controllers\PasswordResetController;
 
 // --- RUTAS PÚBLICAS ---
 Route::get('/', fn() => view('home'))->name('home');
@@ -25,6 +26,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/email/verification-notification', [EmailVerificationController::class, 'resend'])->middleware('throttle:6,1')->name('verification.send');
 });
 
+// --- RECUPERACIÓN DE CONTRASEÑA ---
+Route::get('/forgot-password', [PasswordResetController::class, 'showForgotForm'])->name('password.request');
+Route::post('/forgot-password', [PasswordResetController::class, 'sendResetLink'])->name('password.email');
+Route::get('/reset-password/{token}', [PasswordResetController::class, 'showResetForm'])->name('password.reset');
+Route::post('/reset-password', [PasswordResetController::class, 'resetPassword'])->name('password.update');
+
 // --- ÁREA PRIVADA (usuarios autenticados y con email verificado) ---
 Route::middleware(['mustAuth', 'verified'])->group(function () {
     Route::get('/products', [ContainerController::class, 'index'])->name('products.index');
@@ -37,7 +44,6 @@ Route::middleware(['mustAuth', 'verified'])->group(function () {
 });
 
 // --- ÁREA DE ADMINISTRACIÓN ---
-// Un único grupo con ambos middlewares. Sin duplicados.
 Route::middleware(['mustAuth', 'verified', 'admin'])->group(function () {
     Route::resource('categories', AdminCategoryController::class)
         ->only(['create', 'store']);
