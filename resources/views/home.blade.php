@@ -103,7 +103,7 @@
           <span id="living" data-img="{{ asset('img/salon.jpg') }}">Living Room</span>
           <span id="bathroom" data-img="{{ asset('img/baño.jpg') }}">Bathroom</span>
         </div>
-        <button class="features-btn">Our Products</button>
+        <a href="{{ route('products.index') }}" class="features-btn">Our Products</a>
       </div>
     </section>
 
@@ -111,7 +111,7 @@
       <p>DESIGNED TO INTEGRATE SEAMLESSLY,<br/>
       <span>BUILT TO MAKE AN IMPACT.</span>
       </p>
-      <button class="secondary-btn">Our Product</button>
+      <a href="{{ route('products.index') }}" class="secondary-btn">Our Products</a>
     </section>
 
     <div class="compare-wrapper">
