@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/header.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/cookies.css') }}" />
 
     @stack('styles')
   </head>
@@ -25,7 +26,24 @@
 
     @include('footer')
 
+    {{-- COOKIE CONSENT BANNER --}}
+    <div id="cookieBanner" role="dialog" aria-label="Cookie consent">
+        <div class="cc-text">
+            <strong>🍪 We use cookies</strong>
+            <p>
+                We use essential cookies to keep the site running and optional analytics cookies
+                to understand how visitors interact with our content.
+                You can accept or reject non-essential cookies at any time.
+            </p>
+        </div>
+        <div class="cc-actions">
+            <button class="cc-btn" id="ccReject">Reject</button>
+            <button class="cc-btn" id="ccAccept">Accept all</button>
+        </div>
+    </div>
+
     <script src="{{ asset('js/home.js') }}"></script>
+    <script src="{{ asset('js/cookies.js') }}"></script>
 
     @stack('scripts')
 
