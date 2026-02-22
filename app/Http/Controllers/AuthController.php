@@ -56,9 +56,12 @@ class AuthController extends Controller
         // 3. Iniciar sesión automáticamente
         Auth::login($user);
 
-        // 4. CORRECCIÓN: Redirigir a home (no devolver una vista directamente)
-        return redirect()->route('home')
-            ->with('success', 'Your account has been created successfully!');
+        // 4. Enviar email de verificación
+        $user->sendEmailVerificationNotification();
+
+        // 5. Redirigir a página de aviso de verificación
+        return redirect()->route('verification.notice')
+            ->with('success', 'Your account has been created! Please verify your email.');
     }
 
     public function logout(Request $request)

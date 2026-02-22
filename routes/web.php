@@ -6,6 +6,7 @@ use App\Http\Controllers\ContainerController;
 use App\Http\Controllers\Admin\AdminContainerController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\EmailVerificationController;
 
 // --- RUTAS PÚBLICAS ---
 Route::get('/', fn() => view('home'))->name('home');
@@ -17,8 +18,15 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/register', [AuthController::class, 'register'])->name('register.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// --- ÁREA PRIVADA (usuarios autenticados) ---
-Route::middleware('mustAuth')->group(function () {
+// --- VERIFICACIÓN DE EMAIL ---
+Route::middleware('auth')->group(function () {
+    Route::get('/email/verify', [EmailVerificationController::class, 'notice'])->name('verification.notice');
+    Route::get('/email/verify/{id}/{hash}', [EmailVerificationController::class, 'verify'])->middleware('signed')->name('verification.verify');
+    Route::post('/email/verification-notification', [EmailVerificationController::class, 'resend'])->middleware('throttle:6,1')->name('verification.send');
+});
+
+// --- ÁREA PRIVADA (usuarios autenticados y con email verificado) ---
+Route::middleware(['mustAuth', 'verified'])->group(function () {
     Route::get('/products', [ContainerController::class, 'index'])->name('products.index');
 
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
@@ -30,7 +38,7 @@ Route::middleware('mustAuth')->group(function () {
 
 // --- ÁREA DE ADMINISTRACIÓN ---
 // Un único grupo con ambos middlewares. Sin duplicados.
-Route::middleware(['mustAuth', 'admin'])->group(function () {
+Route::middleware(['mustAuth', 'verified', 'admin'])->group(function () {
     Route::resource('categories', AdminCategoryController::class)
         ->only(['create', 'store']);
 
