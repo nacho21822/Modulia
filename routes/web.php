@@ -6,6 +6,7 @@ use App\Http\Controllers\ContainerController;
 use App\Http\Controllers\Admin\AdminContainerController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\PasswordResetController;
 
 // --- RUTAS PÚBLICAS ---
 Route::get('/', fn() => view('home'))->name('home');
@@ -16,6 +17,12 @@ Route::get('/login', fn() => view('login'))->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/register', [AuthController::class, 'register'])->name('register.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// --- RECUPERACIÓN DE CONTRASEÑA ---
+Route::get('/forgot-password', [PasswordResetController::class, 'showForgotForm'])->name('password.request');
+Route::post('/forgot-password', [PasswordResetController::class, 'sendResetLink'])->name('password.email');
+Route::get('/reset-password/{token}', [PasswordResetController::class, 'showResetForm'])->name('password.reset');
+Route::post('/reset-password', [PasswordResetController::class, 'resetPassword'])->name('password.update');
 
 // --- ÁREA PRIVADA (usuarios autenticados) ---
 Route::middleware('mustAuth')->group(function () {
