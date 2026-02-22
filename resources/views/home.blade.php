@@ -34,8 +34,60 @@
             MODULAR SOLUTIONS FOR A NEW<br />
             <span>WAY OF LIVING</span>
         </h1>
-        <div class="hero-plus">+</div>
+        <div class="hero-plus" id="aboutBtn">+</div>
     </section>
+
+    {{-- MODAL ABOUT US --}}
+    <div class="about-backdrop" id="aboutModal" aria-hidden="true">
+        <div class="about-modal">
+            <button class="about-close" id="aboutClose" aria-label="Close">&times;</button>
+
+            <div class="about-header">
+                <span class="about-tag">EST. 2020 &mdash; BARCELONA</span>
+                <h2>About Modulia</h2>
+            </div>
+
+            <div class="about-body">
+                <p class="about-lead">
+                    We design and build modular container spaces that redefine the way people live, work, and
+                    do business &mdash; without compromising on quality, speed, or sustainability.
+                </p>
+
+                <div class="about-stats">
+                    <div class="about-stat">
+                        <strong>+500</strong>
+                        <span>Projects delivered</span>
+                    </div>
+                    <div class="about-stat">
+                        <strong>18</strong>
+                        <span>Countries</span>
+                    </div>
+                    <div class="about-stat">
+                        <strong>60%</strong>
+                        <span>Faster than traditional construction</span>
+                    </div>
+                </div>
+
+                <div class="about-pillars">
+                    <div class="about-pillar">
+                        <h4>Our Mission</h4>
+                        <p>To make architectural quality accessible through intelligent modular systems &mdash;
+                        spaces that are built to last, adapt, and inspire.</p>
+                    </div>
+                    <div class="about-pillar">
+                        <h4>What We Build</h4>
+                        <p>From private container homes and professional office spaces to commercial pop-ups and
+                        industrial warehouses &mdash; every module is engineered for performance.</p>
+                    </div>
+                    <div class="about-pillar">
+                        <h4>Our Promise</h4>
+                        <p>Each project is designed around your vision and timeline. We handle everything
+                        from concept to installation, so you can focus on what matters.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section class="claim">
       <p>ARCHITECTURAL MODULAR SPACES,<br/>

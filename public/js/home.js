@@ -44,6 +44,35 @@ if (compare) {
     });
 }
 
+/* PARTE 3: MODAL ABOUT US */
+const aboutBtn    = document.getElementById('aboutBtn');
+const aboutModal  = document.getElementById('aboutModal');
+const aboutClose  = document.getElementById('aboutClose');
+
+if (aboutBtn && aboutModal) {
+    aboutBtn.addEventListener('click', () => {
+        aboutModal.classList.add('open');
+        aboutModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    });
+
+    const closeModal = () => {
+        aboutModal.classList.remove('open');
+        aboutModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    };
+
+    aboutClose.addEventListener('click', closeModal);
+
+    aboutModal.addEventListener('click', (e) => {
+        if (e.target === aboutModal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && aboutModal.classList.contains('open')) closeModal();
+    });
+}
+
 const section = document.querySelector(".scroll-story");
 const items = document.querySelectorAll(".story-item");
 const imagesScroll = document.querySelectorAll(".story-img");
