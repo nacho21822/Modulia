@@ -1,4 +1,4 @@
-{{-- Detectamos si estamos en home para poner el header transparente --}}
+{{-- Detect if we're on the home page to set the header transparent --}}
 @php
     $isHome = request()->routeIs('home');
 @endphp
@@ -9,7 +9,7 @@
     <img src="{{ asset('img/logo.png') }}" alt="Logo" class="logo" />
   </a>
 
-  <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú">
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
     <span></span>
     <span></span>
     <span></span>
@@ -20,12 +20,12 @@
     <a href="{{ route('products.index') }}" class="button">Our Products</a>
     <a href="{{ route('contacto') }}" class="button">Contact</a>
 
-    {{-- USUARIO NO LOGUEADO --}}
+    {{-- USER NOT LOGGED IN --}}
     @guest
       <a href="{{ route('login') }}" class="button">Log in</a>
     @endguest
 
-    {{-- USUARIO LOGUEADO --}}
+    {{-- LOGGED-IN USER --}}
     @auth
       @php
         $cartCount = auth()->user()->cart?->items()->sum('quantity') ?? 0;
@@ -70,8 +70,8 @@
       </div>
     @endauth
 
-    {{-- Botón cerrar (solo móvil) --}}
-    <button class="nav-close" id="navClose" aria-label="Cerrar menú">
+    {{-- Close button (mobile only) --}}
+    <button class="nav-close" id="navClose" aria-label="Close menu">
       <span></span>
       <span></span>
     </button>

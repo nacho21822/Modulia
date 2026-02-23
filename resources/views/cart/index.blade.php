@@ -16,7 +16,7 @@
 
     <h1>Your Cart</h1>
 
-    {{-- Mensajes de éxito/error --}}
+    {{-- Success/error messages --}}
     @if(session('success'))
         <div class="cart-alert cart-alert-success">{{ session('success') }}</div>
     @endif

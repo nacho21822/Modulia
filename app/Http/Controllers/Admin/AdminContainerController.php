@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Storage;
 class AdminContainerController extends Controller
 {
     /**
-     * Muestra el formulario para crear un nuevo contenedor.
+     * Display form to create a new container.
      */
     public function create()
     {
@@ -21,13 +21,13 @@ class AdminContainerController extends Controller
     }
 
     /**
-     * Guarda un nuevo contenedor en la base de datos.
+     * Store a new container in the database.
      */
     public function store(Request $request)
     {
         $validatedData = $this->validateContainerRequest($request);
 
-        // Subir imagen si se ha proporcionado una
+        // Upload image if provided
         if ($request->hasFile('image')) {
             $validatedData['image'] = $this->uploadImageToSupabase($request->file('image'));
         }
@@ -39,7 +39,7 @@ class AdminContainerController extends Controller
     }
 
     /**
-     * Muestra el formulario para editar un contenedor existente.
+     * Display form to edit an existing container.
      */
     public function edit(Container $container)
     {
@@ -48,13 +48,13 @@ class AdminContainerController extends Controller
     }
 
     /**
-     * Actualiza un contenedor existente en la base de datos.
+     * Update an existing container in the database.
      */
     public function update(Request $request, Container $container)
     {
         $validatedData = $this->validateContainerRequest($request);
 
-        // Subir nueva imagen solo si se ha enviado una nueva
+        // Upload new image only if provided
         if ($request->hasFile('image')) {
             $validatedData['image'] = $this->uploadImageToSupabase($request->file('image'));
         }
@@ -66,7 +66,7 @@ class AdminContainerController extends Controller
     }
 
     /**
-     * Elimina un contenedor de la base de datos.
+     * Delete a container from the database.
      */
     public function destroy(Container $container)
     {
@@ -76,13 +76,10 @@ class AdminContainerController extends Controller
             ->with('success', 'Container deleted successfully!');
     }
 
-    // =========================================================
-    // MÉTODOS PRIVADOS (helpers internos del controlador)
-    // =========================================================
-
+    // PRIVATE HELPER METHODS
     /**
-     * Valida los campos comunes del formulario de contenedor.
-     * Se usa tanto en store() como en update() para evitar duplicar código.
+     * Validate common container form fields.
+     * Used in both store() and update() to avoid code duplication.
      */
     private function validateContainerRequest(Request $request): array
     {
@@ -98,7 +95,7 @@ class AdminContainerController extends Controller
     }
 
     /**
-     * Sube un archivo de imagen a Supabase Storage y devuelve la URL pública.
+     * Upload image file to Supabase Storage and return public URL.
      */
     private function uploadImageToSupabase(UploadedFile $imageFile): string
     {

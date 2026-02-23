@@ -74,23 +74,23 @@
       @endif
 
       <div class="input-group">
-        {{-- value="{{ old('email') }}" mantiene el email escrito si falla la contraseña --}}
+        {{-- value="{{ old('email') }}" preserves the email entered if login fails --}}
         <input type="email" id="loginEmail" name="email" placeholder="Email" value="{{ old('email') }}" required />
         
-        {{-- 1. ERROR DE LARAVEL (Tu mensaje del Controlador) --}}
-        {{-- Esto mostrará: "Invalid email or password" en rojo --}}
+        {{-- 1. LARAVEL ERROR (server message from controller) --}}
+        {{-- This will show: "Invalid email or password" in red --}}
         @error('email')
             <small class="server-error">{{ $message }}</small>
         @enderror
 
-        {{-- 2. Error de JS (Solo si el campo está vacío) --}}
+        {{-- 2. JS error (only if the field is empty) --}}
         <small class="error-text">Email is required</small>
       </div>
 
       <div class="input-group">
         <input type="password" id="loginPassword" name="password" placeholder="Password" required />
         
-        {{-- Error de JS (Campo vacío) --}}
+        {{-- JS error (empty field) --}}
         <small class="error-text">Password is required</small>
       </div>
 
@@ -124,7 +124,7 @@
     <div class="modal-backdrop" id="successModal">
         <div class="modal-content">
             
-            {{-- CAMBIO AQUÍ: Nueva clase 'modal-icon' --}}
+            {{-- NOTE: New class 'modal-icon' --}}
             <img src="{{ asset('img/si.png') }}" alt="Success" class="modal-icon" />
             
             <h2>Registration Successful!</h2>

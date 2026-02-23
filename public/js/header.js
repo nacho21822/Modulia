@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Scroll-aware header
-    const header = document.querySelector('.header');
+    const header = document.querySelector(".header");
     if (header) {
         const onScroll = () => {
-            header.classList.toggle('header--scrolled', window.scrollY > 80);
+            header.classList.toggle("header--scrolled", window.scrollY > 80);
         };
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll(); // aplicar estado inicial por si la página ya está scrolleada
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll(); // apply initial state if page is already scrolled
     }
 
     const toggle = document.getElementById("userMenuToggle");
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Hamburger menu
+    // --- Hamburger menu ---
     const hamburger = document.getElementById("hamburgerBtn");
     const navButtons = document.getElementById("navButtons");
     const navClose = document.getElementById("navClose");
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
             navClose.addEventListener("click", closeMenu);
         }
 
-        // Cerrar con tecla Escape
+        // Close on Escape key
         document.addEventListener("keydown", (e) => {
             if (e.key === "Escape") closeMenu();
         });

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Inicio')
+@section('title', 'Home')
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/home.css') }}" />
@@ -8,7 +8,7 @@
 
 @section('content')
 
-    {{-- NOTIFICACIÓN DE BIENVENIDA (TOAST) --}}
+    {{-- WELCOME NOTIFICATION (TOAST) --}}
     @if (session('welcome'))
     <div class="welcome-toast">
         <div class="toast-content">
@@ -20,16 +20,16 @@
 @endif
 
     <section class="hero">
-        {{-- VIDEO DE FONDO --}}
+        {{-- BACKGROUND VIDEO --}}
         <video autoplay muted loop playsinline class="hero-video">
             <source src="{{ asset('img/videoFinal.mp4') }}" type="video/mp4">
-            Tu navegador no soporta videos HTML5.
+          Your browser does not support HTML5 video.
         </video>
 
-        {{-- CAPA OSCURA (OPCIONAL, PARA QUE SE LEA EL TEXTO) --}}
+        {{-- DARK OVERLAY (OPTIONAL, TO IMPROVE TEXT READABILITY) --}}
         <div class="hero-overlay"></div>
 
-        {{-- CONTENIDO DEL HERO --}}
+        {{-- HERO CONTENT --}}
         <h1 class="hero-text">
             MODULAR SOLUTIONS FOR A NEW<br />
             <span>WAY OF LIVING</span>
@@ -37,7 +37,7 @@
         <div class="hero-plus" id="aboutBtn">+</div>
     </section>
 
-    {{-- MODAL ABOUT US --}}
+    {{-- ABOUT US MODAL --}}
     <div class="about-backdrop" id="aboutModal" aria-hidden="true">
         <div class="about-modal">
             <button class="about-close" id="aboutClose" aria-label="Close">&times;</button>
@@ -134,7 +134,7 @@
   <section class="cards-section">
     <div class="cards-container">
     
-      {{-- TARJETA 1: HOMES --}}
+      {{-- CARD 1: HOMES --}}
       <a href="{{ route('products.index', ['category' => 'Container Homes']) }}" class="card">
         <img src="{{ asset('img/foto4.jpg') }}" alt="Container Homes" />
         <div class="card-overlay">
@@ -143,7 +143,7 @@
         </div>
       </a>
 
-      {{-- TARJETA 2: OFFICES --}}
+      {{-- CARD 2: OFFICES --}}
       <a href="{{ route('products.index', ['category' => 'Office Spaces']) }}" class="card">
         <img src="{{ asset('img/category-offices.jpg') }}" alt="Office Spaces" />
         <div class="card-overlay">
@@ -152,7 +152,7 @@
         </div>
       </a>
 
-      {{-- TARJETA 3: COMMERCIAL --}}
+      {{-- CARD 3: COMMERCIAL --}}
       <a href="{{ route('products.index', ['category' => 'Commercial']) }}" class="card">
         <img src="{{ asset('img/comercial1.jpg') }}" alt="Commercial" />
         <div class="card-overlay">

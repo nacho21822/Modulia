@@ -9,10 +9,10 @@
 @section('content')
 <div class="profile-wrapper">
 
-    {{-- Cabecera del perfil --}}
+    {{-- Profile header --}}
     <div class="profile-header">
         <div class="profile-avatar">
-            {{-- Inicial del nombre como avatar (sin imagen, puro CSS) --}}
+            {{-- Use first letter of the name as avatar (no image, CSS only) --}}
             {{ strtoupper(substr($user->name, 0, 1)) }}
         </div>
         <div class="profile-header-info">
@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    {{-- Tarjeta con los datos --}}
+    {{-- Card with account details --}}
     <div class="profile-card">
         <h2 class="profile-section-title">Account Details</h2>
 
@@ -38,7 +38,7 @@
         <div class="profile-field">
             <span class="profile-label">Member since</span>
             <span class="profile-value">
-                {{-- Formatea la fecha de creación: "February 2025" --}}
+                {{-- Format the creation date (e.g. "February 3, 2025") --}}
                 {{ $user->created_at->format('F j, Y') }}
             </span>
         </div>
@@ -49,14 +49,14 @@
         </div>
     </div>
 
-    {{-- Acciones --}}
+    {{-- Actions --}}
     <div class="profile-actions">
-        {{-- Botón "Edit" visual (funcionalidad futura) --}}
+        {{-- Visual "Edit" button (future functionality) --}}
         <button class="profile-btn-edit" disabled title="Coming soon">
             ✏️ Edit Profile
         </button>
 
-        {{-- Volver al catálogo --}}
+        {{-- Back to catalogue --}}
         <a href="{{ route('products.index') }}" class="profile-btn-back">
             ← Back to catalogue
         </a>

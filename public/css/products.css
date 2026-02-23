@@ -170,14 +170,14 @@ body {
     background: #222;
 }
 
-/* MINI CART */
+/* Mini cart section */
 .mini-cart {
     background: #fff;
     border: 1px solid #eee;
     border-radius: 14px;
     padding: 18px;
     margin-bottom: 30px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
 }
 
 .mini-cart-header {
@@ -249,9 +249,7 @@ body {
     font-size: 14px;
 }
 
-/* ================================ */
-/* RESPONSIVE MOBILE                */
-/* ================================ */
+/* --- RESPONSIVE: MOBILE --- */
 @media (max-width: 768px) {
     .products-header {
         padding: 90px 5% 40px;

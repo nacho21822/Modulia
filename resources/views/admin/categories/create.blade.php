@@ -2,7 +2,6 @@
 
 @section('title', 'Add Category')
 
-{{-- CORRECCIÓN: El CSS va dentro de @push para que se inyecte en el <head> --}}
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/admin-forms.css') }}">
 @endpush
@@ -16,7 +15,6 @@
 
         <div class="admin-form-group">
             <label for="name">Category name</label>
-            {{-- MEJORA: old('name') recupera el valor si falla la validación --}}
             <input
                 type="text"
                 id="name"
@@ -24,7 +22,6 @@
                 value="{{ old('name') }}"
                 required
             >
-            {{-- MEJORA: Muestra el error de validación del servidor --}}
             @error('name')
                 <span class="error-text" style="display:block; color:red; font-size:0.85rem; margin-top:4px;">
                     {{ $message }}

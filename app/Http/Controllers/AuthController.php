@@ -11,7 +11,7 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        // 1. Validar formato del formulario
+        // 1. Validate form format
         $credentials = $request->validate([
             'email'    => 'required|email',
             'password' => 'required',
@@ -21,7 +21,7 @@ class AuthController extends Controller
             'password.required' => 'Please enter your password.',
         ]);
 
-        // 2. Comprobar credenciales contra la base de datos
+        // 2. Check credentials against database
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
@@ -29,7 +29,7 @@ class AuthController extends Controller
                 ->with('welcome', 'Welcome back! You are now logged in.');
         }
 
-        // 3. Si las credenciales son incorrectas, volver al login con error
+        // 3. If credentials are incorrect, return to login with error
         return back()->withErrors([
             'email' => 'Invalid email or password.',
         ]);
@@ -37,7 +37,7 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        // 1. Validar los datos del formulario
+        // 1. Validate form data
         $request->validate([
             'name'                  => 'required|string|max:255',
             'email'                 => 'required|email|unique:users',
@@ -45,7 +45,7 @@ class AuthController extends Controller
             'password_confirmation' => 'required|same:password',
         ]);
 
-        // 2. Crear el usuario con contraseña encriptada
+        // 2. Create user with encrypted password
         $user = User::create([
             'name'     => $request->name,
             'email'    => $request->email,
@@ -53,13 +53,13 @@ class AuthController extends Controller
             'role'     => 'user',
         ]);
 
-        // 3. Iniciar sesión automáticamente
+        // 3. Auto-login
         Auth::login($user);
 
-        // 4. Enviar email de verificación
+        // 4. Send email verification
         $user->sendEmailVerificationNotification();
 
-        // 5. Redirigir a página de aviso de verificación
+        // 5. Redirect to verification notice page
         return redirect()->route('verification.notice')
             ->with('success', 'Your account has been created! Please verify your email.');
     }

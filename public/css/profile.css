@@ -1,6 +1,4 @@
-/* ============================================
-   PROFILE PAGE — MODULIA
-   ============================================ */
+/* --- PROFILE PAGE --- MODULIA --- */
 
 .profile-wrapper {
     max-width: 680px;
@@ -9,7 +7,7 @@
     font-family: "Montserrat", sans-serif;
 }
 
-/* --- Cabecera con avatar --- */
+/* --- Profile header with avatar --- */
 .profile-header {
     display: flex;
     align-items: center;
@@ -18,7 +16,7 @@
 }
 
 .profile-avatar {
-    /* Círculo con la inicial del nombre */
+    /* Circle with name initial */
     width: 72px;
     height: 72px;
     border-radius: 50%;
@@ -50,7 +48,7 @@
     color: #555;
 }
 
-/* --- Tarjeta de datos --- */
+/* --- Profile data card --- */
 .profile-card {
     background: #fff;
     border: 1px solid #e8e8e8;
@@ -69,7 +67,7 @@
     margin: 0 0 24px 0;
 }
 
-/* Cada fila de dato */
+/* Data row */
 .profile-field {
     display: flex;
     justify-content: space-between;
@@ -94,7 +92,7 @@
     font-weight: 400;
 }
 
-/* --- Botones de acción --- */
+/* --- Action buttons --- */
 .profile-actions {
     display: flex;
     gap: 12px;
@@ -109,7 +107,7 @@
     font-family: "Montserrat", sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
-    cursor: not-allowed;  /* Indica que está deshabilitado */
+    cursor: not-allowed; /* indicates disabled state */
     opacity: 0.5;
     color: #333;
 }

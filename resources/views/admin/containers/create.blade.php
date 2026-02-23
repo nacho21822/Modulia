@@ -49,10 +49,10 @@
         <div class="admin-form-group">
             <label for="type">Type</label>
             <select id="type" name="type" required>
-                <option value="vivienda"  @selected(old('type') === 'vivienda')>Vivienda</option>
-                <option value="oficina"   @selected(old('type') === 'oficina')>Oficina</option>
-                <option value="almacen"   @selected(old('type') === 'almacen')>Almacén</option>
-                <option value="otro"      @selected(old('type') === 'otro')>Otro</option>
+                <option value="home"     @selected(old('type') === 'home')>Home</option>
+                <option value="office"   @selected(old('type') === 'office')>Office</option>
+                <option value="warehouse"@selected(old('type') === 'warehouse')>Warehouse</option>
+                <option value="other"    @selected(old('type') === 'other')>Other</option>
             </select>
             @error('type') <span style="color:red;font-size:0.85rem;">{{ $message }}</span> @enderror
         </div>

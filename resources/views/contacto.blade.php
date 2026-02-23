@@ -35,7 +35,7 @@
 
             <div class="col-12 col-md-8 col-lg-8 offset-lg-1 mt-4 mt-md-0">
 
-                {{-- Alert de éxito --}}
+                {{-- Success alert --}}
                 @if(session('contact_success'))
                     <div class="alert alert-success alert-dismissible fade show mb-5" role="alert">
                         <strong>Message sent!</strong> We'll get back to you as soon as possible.

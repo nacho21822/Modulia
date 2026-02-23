@@ -45,10 +45,10 @@
         <div class="admin-form-group">
             <label>Type</label>
             <select name="type" required>
-                <option value="vivienda" @selected($container->type === 'vivienda')>Vivienda</option>
-                <option value="oficina" @selected($container->type === 'oficina')>Oficina</option>
-                <option value="almacen" @selected($container->type === 'almacen')>Almacén</option>
-                <option value="otro" @selected($container->type === 'otro')>Otro</option>
+                <option value="vivienda" @selected($container->type === 'vivienda')>Home</option>
+                <option value="oficina" @selected($container->type === 'oficina')>Office</option>
+                <option value="almacen" @selected($container->type === 'almacen')>Warehouse</option>
+                <option value="otro" @selected($container->type === 'otro')>Other</option>
             </select>
         </div>
 
