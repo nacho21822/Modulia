@@ -1,59 +1,146 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🏗️ MODULIA: Soluciones Modulares para una Nueva Forma de Vivir
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![Laravel 11](https://img.shields.io/badge/Framework-Laravel%2011-FF2D20?logo=laravel)](https://laravel.com)
+[![PHP 8.2](https://img.shields.io/badge/PHP-8.2-777BB4?logo=php)](https://www.php.net/)
+[![PostgreSQL](https://img.shields.io/badge/DB-PostgreSQL-4169E1?logo=postgresql)](https://www.postgresql.org/)
+[![Docker](https://img.shields.io/badge/Env-Docker-2496ED?logo=docker)](https://www.docker.com/)
 
-## About Laravel
+**Modulia** es una plataforma integral de comercio y gestión para construcciones modulares. Este proyecto nace de la necesidad de digitalizar el sector de los contenedores habitacionales, ofreciendo una experiencia de usuario fluida y un panel administrativo robusto.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📖 Índice
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- [🏗️ MODULIA: Soluciones Modulares para una Nueva Forma de Vivir](#️-modulia-soluciones-modulares-para-una-nueva-forma-de-vivir)
+    - [📖 Índice](#-índice)
+    - [🚀 Sobre el Proyecto](#-sobre-el-proyecto)
+    - [💼 Análisis de Negocio (IPE II / EIE)](#-análisis-de-negocio-ipe-ii--eie)
+    - [🎨 Diseño de Interfaz (DIW)](#-diseño-de-interfaz-diw)
+    - [💻 Desarrollo Técnico](#-desarrollo-técnico)
+        - [Backend (DWES)](#backend-dwes)
+        - [Frontend (DWEC)](#frontend-dwec)
+    - [🐳 Infraestructura y Despliegue (DAW)](#-infraestructura-y-despliegue-daw)
+    - [📅 Metodología SCRUM](#-metodología-scrum)
+    - [⚙️ Instalación](#️-instalación)
+    - [🛠️ Evaluación y Testing](#️-evaluación-y-testing)
+    - [👨‍💻 Autores](#-autores)
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 🚀 Sobre el Proyecto
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Modulia permite la preventa y personalización de módulos (viviendas, oficinas, comercios). La plataforma separa claramente la experiencia del cliente de la gestión interna mediante roles de acceso definidos.
 
-## Laravel Sponsors
+- **Catálogo Dinámico:** Filtrado por categorías.
+- **Gestión de Carrito:** Persistencia de datos y validación de stock.
+- **Panel Administrativo:** Control total sobre el inventario y estados de pedidos.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 💼 Análisis de Negocio (IPE II / EIE)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Hemos aplicado un enfoque empresarial real mediante:
 
-## Contributing
+- **Modelo Canvas:** Definición de propuesta de valor, canales y flujos de ingresos.
+- **Sostenibilidad (ODS):** El proyecto se alinea con el **ODS 11 (Ciudades y comunidades sostenibles)**, promoviendo la construcción modular por su menor impacto ambiental y eficiencia energética.
+- **Promotores:** Grupo multidisciplinar 7K (Jaume Ibars, Fernando Serer, Ignacio Cantador).
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 🎨 Diseño de Interfaz (DIW)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+El diseño se centra en el minimalismo y la arquitectura moderna.
 
-## Security Vulnerabilities
+- **Prototipado:** Realizado en **Penpot** (Wireframes de alta fidelidad).
+- **UI/UX:**
+    - Arquitectura de información jerarquizada.
+    - Diseño **Mobile First** y totalmente Responsive.
+    - Uso de componentes visuales: Spinners de carga, Toasts de notificación y Modales para autenticación.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 💻 Desarrollo Técnico
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Backend (DWES)
+
+Construido con **Laravel 11**, aprovechando las últimas mejoras del framework:
+
+- **Eloquent ORM:** Relaciones complejas entre `Users`, `Containers`, `Categories` y `Orders`.
+- **Seguridad:** \* Protección contra ataques CSRF y SQL Injection (vía PDO).
+    - Middlewares personalizados (`IsAdmin`) para restringir el acceso al panel.
+    - Verificación de email obligatoria para realizar pedidos.
+- **Gestión de Archivos:** Sistema de carga de imágenes para el catálogo con validación de tipo y tamaño.
+
+### Frontend (DWEC)
+
+- **Blade Engine:** Plantillas reutilizables y layouts maestros.
+- **JavaScript Vanilla:** \* Gestión asíncrona del carrito (Fetch API).
+    - Validaciones de formularios en el lado del cliente.
+    - Manipulación dinámica del DOM para sliders y galerías de productos.
+
+---
+
+## 🐳 Infraestructura y Despliegue (DAW)
+
+El proyecto está completamente contenerizado, facilitando su escalabilidad y despliegue:
+
+- **Docker Compose:** Orquestación de servicios (App, Web Server, Database).
+- **Servidor Web:** Configuración de Apache optimizada.
+- **Base de Datos:** PostgreSQL 16 para una gestión de datos relacional robusta.
+- **Control de Versiones:** Git con flujo de trabajo basado en ramas por funcionalidad.
+
+---
+
+## 📅 Metodología SCRUM
+
+Organización en **4 Sprints** semanales mediante Jira/Trello:
+
+- **Sprint 1:** Requisitos, Historias de Usuario (HU) y Prototipado.
+- **Sprint 2:** Configuración de entorno Docker, Migraciones y Auth.
+- **Sprint 3:** Lógica de Carrito, Pedidos y Relaciones Eloquent.
+- **Sprint 4:** Panel Admin, Refactorización (KISS) y Memoria Técnica.
+
+---
+
+## ⚙️ Instalación
+
+1.  **Requisitos:** Docker Desktop y Git.
+2.  **Clonar y Configurar:**
+    ```bash
+    git clone [https://github.com/tu-usuario/modulia.git](https://github.com/tu-usuario/modulia.git)
+    cd modulia
+    cp .env.example .env
+    ```
+3.  **Lanzar Entorno:**
+    ```bash
+    docker compose up --build -d
+    ```
+4.  **Inicializar Laravel:**
+    ```bash
+    docker compose exec app composer install
+    docker compose exec app php artisan key:generate
+    docker compose exec app php artisan migrate --seed
+    ```
+5.  **Acceso:** `http://localhost:8000`
+
+---
+
+## 🛠️ Evaluación y Testing
+
+Se han realizado pruebas de caja negra y blanca:
+
+- Pruebas funcionales de registro y login.
+- Simulación de intentos de acceso no autorizado a `/admin`.
+- Validación de flujo completo: Selección -> Carrito -> Pedido -> Gestión Admin.
+
+---
+
+## 👨‍💻 Autores
+
+- **Jaume Ibars**
+- **Fernando Serer**
+- **Ignacio Cantador**
+
+---
+
+© 2026 - IES Abastos - Proyecto Intermodular DAW
