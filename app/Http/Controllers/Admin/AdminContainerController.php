@@ -95,12 +95,14 @@ class AdminContainerController extends Controller
     }
 
     /**
-     * Store image file on the public disk and return its URL.
+     * Store image file on the public disk and return a root-relative URL.
+     * Using a root-relative path (/storage/...) instead of an absolute URL
+     * avoids dependency on APP_URL and works on any hostname/port.
      */
     private function uploadImageToSupabase(UploadedFile $imageFile): string
     {
         $path = Storage::disk('public')->putFile('containers', $imageFile);
 
-        return Storage::disk('public')->url($path);
+        return '/storage/' . $path;
     }
 }
