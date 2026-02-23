@@ -7,7 +7,6 @@ use App\Models\Container;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Storage;
 
 class AdminContainerController extends Controller
 {
@@ -95,14 +94,15 @@ class AdminContainerController extends Controller
     }
 
     /**
-     * Store image file on the public disk and return a root-relative URL.
-     * Using a root-relative path (/storage/...) instead of an absolute URL
-     * avoids dependency on APP_URL and works on any hostname/port.
+     * Move the uploaded image directly into public/uploads/containers/
+     * and return a root-relative URL. This avoids the storage symlink
+     * entirely, which is unreliable on Windows dev environments.
      */
     private function uploadImageToSupabase(UploadedFile $imageFile): string
     {
-        $path = Storage::disk('public')->putFile('containers', $imageFile);
+        $filename = uniqid('img_', true) . '.' . $imageFile->getClientOriginalExtension();
+        $imageFile->move(public_path('uploads/containers'), $filename);
 
-        return '/storage/' . $path;
+        return '/uploads/containers/' . $filename;
     }
 }
