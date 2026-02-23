@@ -1,27 +1,4 @@
-/* --- PART 1: Image switching --- */
-const image = document.getElementById("featuresImage");
-const tags = document.querySelectorAll(".features-tags span");
-
-// PROTECTION: Only proceed if main image exists
-if (image) {
-    tags.forEach((tag) => {
-        tag.addEventListener("click", () => {
-            image.style.opacity = 0;
-
-            setTimeout(() => {
-                const nuevaRuta = tag.getAttribute("data-img");
-                if (nuevaRuta) image.src = nuevaRuta;
-
-                image.style.opacity = 1;
-            }, 300);
-
-            tags.forEach((t) => t.classList.remove("active"));
-            tag.classList.add("active");
-        });
-    });
-}
-
-/* --- PART 2: Comparison slider --- */
+/* --- PART 1: Comparison slider --- */
 const compare = document.getElementById("compare");
 const topImage = document.getElementById("topImage");
 const divider = document.getElementById("divider");

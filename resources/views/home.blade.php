@@ -95,13 +95,18 @@
       </p>
     </section>
 
-    <section class="features-section">
+    {{-- FEATURES SECTION — powered by Vue 3 --}}
+    <section class="features-section" id="features-app">
       <div class="features-wrapper">
-        <img src="{{ asset('img/cocina2.jpg') }}" id="featuresImage" alt="Features Image" />
+        <img :src="currentImg" :class="{ fading: fading }" alt="Features Image" />
         <div class="features-tags">
-          <span id="kitchen" class="active" data-img="{{ asset('img/cocina2.jpg') }}">Kitchen</span>
-          <span id="living" data-img="{{ asset('img/salon.jpg') }}">Living Room</span>
-          <span id="bathroom" data-img="{{ asset('img/baño.jpg') }}">Bathroom</span>
+          <span
+            v-for="tab in tabs"
+            :key="tab.id"
+            :class="{ active: currentTab === tab.id }"
+            @click="selectTab(tab.id)"
+            v-text="tab.label"
+          ></span>
         </div>
         <a href="{{ route('products.index') }}" class="features-btn">Our Products</a>
       </div>
@@ -184,3 +189,40 @@
     </section>
 
 @endsection
+
+@push('scripts')
+{{-- Vue 3 CDN --}}
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script>
+    const { createApp } = Vue;
+
+    createApp({
+        data() {
+            return {
+                currentTab: 'kitchen',
+                fading: false,
+                tabs: [
+                    { id: 'kitchen',  label: 'Kitchen',     img: '{{ asset("img/cocina2.jpg") }}' },
+                    { id: 'living',   label: 'Living Room',  img: '{{ asset("img/salon.jpg") }}' },
+                    { id: 'bathroom', label: 'Bathroom',     img: '{{ asset("img/baño.jpg") }}' },
+                ],
+            };
+        },
+        computed: {
+            currentImg() {
+                return this.tabs.find(t => t.id === this.currentTab).img;
+            },
+        },
+        methods: {
+            selectTab(id) {
+                if (id === this.currentTab) return;
+                this.fading = true;
+                setTimeout(() => {
+                    this.currentTab = id;
+                    this.fading = false;
+                }, 300);
+            },
+        },
+    }).mount('#features-app');
+</script>
+@endpush
