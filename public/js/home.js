@@ -78,35 +78,29 @@ const imagesScroll = document.querySelectorAll(".story-img");
 if (section) {
     const numItems = items.length;
 
-    window.addEventListener("scroll", () => {
-        const rect = section.getBoundingClientRect();
-        const sectionHeight = section.offsetHeight;
-        const windowHeight = window.innerHeight;
+    const updateStory = () => {
+        // Absolute distance from document top to section top
+        const sectionTop =
+            section.getBoundingClientRect().top + window.pageYOffset;
 
-        // only when the section is visible
-        if (rect.bottom > 0 && rect.top < windowHeight) {
-            // scroll relative within the section
-            const scrollInside = Math.min(
-                Math.max(windowHeight - rect.top, 0),
-                sectionHeight,
-            );
+        // How far we've scrolled PAST the section top (0 = sticky just locked)
+        const scrolledIn = window.pageYOffset - sectionTop;
 
-            // height of each segment per item
-            const tramo = sectionHeight / numItems;
+        // Total virtual scroll space inside the section
+        const scrollable = section.offsetHeight - window.innerHeight;
 
-            // index based on segment height
-            let index = Math.floor(scrollInside / tramo);
+        // Do nothing if the sticky block hasn't locked yet or has already passed
+        if (scrolledIn < 0 || scrolledIn > scrollable) return;
 
-            // limit index to valid range
-            index = Math.min(Math.max(index, 0), numItems - 1);
+        const progress = scrolledIn / scrollable;
+        let index = Math.floor(progress * numItems);
+        index = Math.min(Math.max(index, 0), numItems - 1);
 
-            // activate items and images
-            items.forEach((item, i) =>
-                item.classList.toggle("active", i === index),
-            );
-            imagesScroll.forEach((img, i) =>
-                img.classList.toggle("active", i === index),
-            );
-        }
-    });
+        items.forEach((item, i) => item.classList.toggle("active", i === index));
+        imagesScroll.forEach((img, i) =>
+            img.classList.toggle("active", i === index),
+        );
+    };
+
+    window.addEventListener("scroll", updateStory, { passive: true });
 }

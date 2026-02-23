@@ -367,15 +367,15 @@ body {
 
 /* SCROLL STORY */
 .scroll-story {
-    height: 200vh;
-    margin-bottom: 200px;
-    margin-top: 200px;
+    height: 600vh;
+    margin-bottom: 80px;
+    margin-top: 80px;
 }
 
 .scroll-sticky {
     position: sticky;
     top: 0;
-    height: 85vh;
+    height: 100vh;
     display: flex;
     padding: 0 6%;
     background: #fff;
@@ -703,9 +703,9 @@ body {
 
     /* SCROLL STORY — sticky column layout */
     .scroll-story {
-        height: 300vh;
-        margin-bottom: 60px;
-        margin-top: 60px;
+        height: 500vh;
+        margin-bottom: 40px;
+        margin-top: 40px;
     }
 
     .scroll-sticky {
