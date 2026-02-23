@@ -95,18 +95,12 @@ class AdminContainerController extends Controller
     }
 
     /**
-     * Upload image file to Supabase Storage and return public URL.
+     * Store image file on the public disk and return its URL.
      */
     private function uploadImageToSupabase(UploadedFile $imageFile): string
     {
-        $path = Storage::disk('supabase')->putFile(
-            'containers',
-            $imageFile,
-            ['visibility' => 'public']
-        );
+        $path = Storage::disk('public')->putFile('containers', $imageFile);
 
-        return 'https://' . env('SUPABASE_PROJECT_ID') .
-               '.supabase.co/storage/v1/object/public/' .
-               env('AWS_BUCKET') . '/' . $path;
+        return Storage::disk('public')->url($path);
     }
 }

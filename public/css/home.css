@@ -377,8 +377,8 @@ body {
 
 .scroll-sticky {
     position: sticky;
-    top: 0;
-    height: 100vh;
+    top: 80px;
+    height: calc(100vh - 80px);
     display: flex;
     padding: 0 6%;
     background: #fff;
@@ -713,8 +713,8 @@ body {
 
     .scroll-sticky {
         position: sticky;
-        top: 0;
-        height: 100vh;
+        top: 80px;
+        height: calc(100vh - 80px);
         flex-direction: column;
         padding: 0;
         overflow: hidden;

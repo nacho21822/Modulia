@@ -64,7 +64,10 @@ if (section) {
         const scrolledIn = window.pageYOffset - sectionTop;
 
         // Total virtual scroll space inside the section
-        const scrollable = section.offsetHeight - window.innerHeight;
+        // The sticky panel sits at top: 80px (header height), so the effective
+        // viewport used by the panel is innerHeight - 80px
+        const HEADER = 80;
+        const scrollable = section.offsetHeight - (window.innerHeight - HEADER);
 
         // Do nothing if the sticky block hasn't locked yet or has already passed
         if (scrolledIn < 0 || scrolledIn > scrollable) return;
