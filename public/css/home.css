@@ -533,6 +533,72 @@ body {
 }
 
 /* ================================ */
+/* RESPONSIVE TABLET (769px–1024px) */
+/* ================================ */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-text {
+        font-size: 28px;
+        left: 32px;
+    }
+
+    .hero-plus {
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+        bottom: 32px;
+        right: 32px;
+    }
+
+    .claim p,
+    .final p,
+    .categories p {
+        font-size: 26px;
+    }
+
+    .features-wrapper {
+        width: 90%;
+    }
+
+    #featuresImage {
+        height: 380px;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .card {
+        height: 300px;
+    }
+
+    .compare-wrapper {
+        padding: 0 5%;
+    }
+
+    .story-text {
+        font-size: 28px;
+    }
+
+    .about-modal {
+        padding: 44px 48px 40px;
+        max-width: 680px;
+    }
+
+    .about-header h2 {
+        font-size: 28px;
+    }
+
+    .about-stats {
+        gap: 16px;
+    }
+
+    .about-pillars {
+        gap: 20px;
+    }
+}
+
+/* ================================ */
 /* RESPONSIVE MOBILE                */
 /* ================================ */
 @media (max-width: 768px) {

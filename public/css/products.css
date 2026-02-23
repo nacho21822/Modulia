@@ -249,6 +249,31 @@ body {
     font-size: 14px;
 }
 
+/* --- RESPONSIVE: TABLET (769px–1024px) --- */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .products-header {
+        padding: 100px 5% 50px;
+    }
+
+    .products-header h1 {
+        font-size: 2rem;
+    }
+
+    .products-layout {
+        grid-template-columns: 220px 1fr;
+        gap: 24px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .product-image {
+        height: 200px;
+    }
+}
+
 /* --- RESPONSIVE: MOBILE --- */
 @media (max-width: 768px) {
     .products-header {

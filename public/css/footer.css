@@ -111,6 +111,27 @@
     line-height: 1.6;
 }
 
+/* --- RESPONSIVE: TABLET (769px–1024px) --- */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .footer {
+        padding: 60px 40px 36px;
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+    }
+
+    .newsletter form {
+        flex-direction: row;
+    }
+
+    .footer-bottom {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
 /* --- RESPONSIVE: MOBILE --- */
 @media (max-width: 768px) {
     .footer {
