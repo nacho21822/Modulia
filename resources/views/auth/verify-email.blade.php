@@ -42,6 +42,13 @@
       background-color: #4b4b4b;
       color: #fff;
     }
+    /* Reset login-modal.css global form styles */
+    .verify-card form {
+      height: auto;
+      background: transparent;
+      padding: 0;
+      display: block;
+    }
     .alert-success {
       background-color: #d1e7dd;
       color: #0f5132;
