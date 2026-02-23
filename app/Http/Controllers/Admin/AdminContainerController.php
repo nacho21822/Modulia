@@ -7,6 +7,7 @@ use App\Models\Container;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Http;
 
 class AdminContainerController extends Controller
 {
@@ -94,15 +95,24 @@ class AdminContainerController extends Controller
     }
 
     /**
-     * Move the uploaded image directly into public/uploads/containers/
-     * and return a root-relative URL. This avoids the storage symlink
-     * entirely, which is unreliable on Windows dev environments.
+     * Upload image to Supabase Storage via REST API and return the public URL.
+     * Uses Laravel HTTP client — no S3 driver or extra packages needed.
      */
     private function uploadImageToSupabase(UploadedFile $imageFile): string
     {
-        $filename = uniqid('img_', true) . '.' . $imageFile->getClientOriginalExtension();
-        $imageFile->move(public_path('uploads/containers'), $filename);
+        $filename   = uniqid('img_', true) . '.' . $imageFile->getClientOriginalExtension();
+        $supabaseUrl = env('SUPABASE_URL');
+        $supabaseKey = env('SUPABASE_KEY');
 
-        return '/uploads/containers/' . $filename;
+        Http::withHeaders([
+            'Authorization' => 'Bearer ' . $supabaseKey,
+            'Content-Type'  => $imageFile->getMimeType(),
+            'x-upsert'      => 'true',
+        ])->withBody(
+            file_get_contents($imageFile->getPathname()),
+            $imageFile->getMimeType()
+        )->post("{$supabaseUrl}/storage/v1/object/containers/{$filename}");
+
+        return "{$supabaseUrl}/storage/v1/object/public/containers/{$filename}";
     }
 }
