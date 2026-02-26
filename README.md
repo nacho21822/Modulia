@@ -93,7 +93,7 @@ El proyecto está completamente contenerizado, facilitando su escalabilidad y de
 
 ## 📅 Metodología SCRUM
 
-Organización en **4 Sprints** semanales mediante Jira/Trello:
+Organización en **4 Sprints** semanales mediante Scrum:
 
 - **Sprint 1:** Requisitos, Historias de Usuario (HU) y Prototipado.
 - **Sprint 2:** Configuración de entorno Docker, Migraciones y Auth.
@@ -107,7 +107,7 @@ Organización en **4 Sprints** semanales mediante Jira/Trello:
 1.  **Requisitos:** Docker Desktop y Git.
 2.  **Clonar y Configurar:**
     ```bash
-    git clone [https://github.com/tu-usuario/modulia.git](https://github.com/tu-usuario/modulia.git)
+    git clone [https://github.com/nacho21822/modulia.git](https://github.com/nacho21822/modulia.git)
     cd modulia
     cp .env.example .env
     ```
